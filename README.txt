@@ -1,18 +1,18 @@
-WOGÊÇWorld of GreenwoodµÄËõÐ´£¬ÊÇÒ»¸ö×ÔÓÉ£¬¿ªÔ´µÄÓÎÏ·
-    WOGÊÇÒ»¿îÔÚAndroidÊÖ»úÉÏµÄ½ÇÉ«°çÑÝÓÎÏ·£¬ÓÉsqliteÊý¾Ý¿â¿ØÖÆÓÎÏ·ÄÚÈÝ
-WOGÔ´´úÂë·ÅÔÚgithubÉÏ£¬ÍøÖ·Îª£ºhttp://github.com/wzl7222504/WOG
-¹ØÓÚWOGµÄÎÊÌâ¿ÉÒÔÌá½»ÖÁ£ºhttp://netsurfers.gicp.net/discu
+WOGæ˜¯World of Greenwoodçš„ç¼©å†™ï¼Œæ˜¯ä¸€ä¸ªè‡ªç”±ï¼Œå¼€æºçš„æ¸¸æˆ
+    WOGæ˜¯ä¸€æ¬¾åœ¨Androidæ‰‹æœºä¸Šçš„è§’è‰²æ‰®æ¼”æ¸¸æˆï¼Œç”±sqliteæ•°æ®åº“æŽ§åˆ¶æ¸¸æˆå†…å®¹
+WOGæºä»£ç æ”¾åœ¨githubä¸Šï¼Œç½‘å€ä¸ºï¼šhttp://github.com/wzl7222504/WOG
+å…³äºŽWOGçš„é—®é¢˜å¯ä»¥æäº¤è‡³ï¼šhttp://netsurfers.gicp.net/discu
 
-	°æÈ¨ËùÓÐ(C) 2010 ³åÀËÍønetsurfers.gicp.net
+	ç‰ˆæƒæ‰€æœ‰(C) 2010 å†²æµªç½‘netsurfers.gicp.net
 
-    ±¾³ÌÐòÎª×ÔÓÉÈí¼þ£»Äú¿ÉÒÀ¾Ý×ÔÓÉÈí¼þ»ù½ð»áËù·¢±íµÄGNU Í¨ÓÃ¹«¹²ÊÚÈ¨Ìõ¿î£¬¶Ô±¾³ÌÐòÔÙ´Î·¢²¼ºÍ/ »òÐÞ¸Ä£»ÎÞÂÛÄúÒÀ¾ÝµÄÊÇ±¾ÊÚÈ¨µÄµÚÈý°æ£¬»ò£¨Äú¿ÉÑ¡µÄ£©ÈÎÒ»ÈÕºó·¢ÐÐµÄ°æ±¾¡£
+    æœ¬ç¨‹åºä¸ºè‡ªç”±è½¯ä»¶ï¼›æ‚¨å¯ä¾æ®è‡ªç”±è½¯ä»¶åŸºé‡‘ä¼šæ‰€å‘è¡¨çš„GNU é€šç”¨å…¬å…±æŽˆæƒæ¡æ¬¾ï¼Œå¯¹æœ¬ç¨‹åºå†æ¬¡å‘å¸ƒå’Œ/ æˆ–ä¿®æ”¹ï¼›æ— è®ºæ‚¨ä¾æ®çš„æ˜¯æœ¬æŽˆæƒçš„ç¬¬ä¸‰ç‰ˆï¼Œæˆ–ï¼ˆæ‚¨å¯é€‰çš„ï¼‰ä»»ä¸€æ—¥åŽå‘è¡Œçš„ç‰ˆæœ¬ã€‚
 
-    ±¾³ÌÐòÊÇ»ùÓÚÊ¹ÓÃÄ¿µÄ¶ø¼ÓÒÔ·¢²¼£¬È»¶ø²»¸ºÈÎºÎµ£±£ÔðÈÎ£»ÒàÎÞ¶ÔÊÊÊÛÐÔ»òÌØ¶¨Ä¿µÄÊÊÓÃÐÔËùÎªµÄÄ¬Ê¾ÐÔµ£±£¡£ÏêÇéÇë²ÎÕÕGNU Í¨ÓÃ¹«¹²ÊÚÈ¨¡£
+    æœ¬ç¨‹åºæ˜¯åŸºäºŽä½¿ç”¨ç›®çš„è€ŒåŠ ä»¥å‘å¸ƒï¼Œç„¶è€Œä¸è´Ÿä»»ä½•æ‹…ä¿è´£ä»»ï¼›äº¦æ— å¯¹é€‚å”®æ€§æˆ–ç‰¹å®šç›®çš„é€‚ç”¨æ€§æ‰€ä¸ºçš„é»˜ç¤ºæ€§æ‹…ä¿ã€‚è¯¦æƒ…è¯·å‚ç…§GNU é€šç”¨å…¬å…±æŽˆæƒã€‚
 
-    ÄúÓ¦ÒÑÊÕµ½¸½ËæÓÚ±¾³ÌÐòµÄGNU Í¨ÓÃ¹«¹²ÊÚÈ¨µÄ¸±±¾£»Èç¹ûÃ»ÓÐ£¬Çë²ÎÕÕ<http://www.gnu.org/licenses/>.
+    æ‚¨åº”å·²æ”¶åˆ°é™„éšäºŽæœ¬ç¨‹åºçš„GNU é€šç”¨å…¬å…±æŽˆæƒçš„å‰¯æœ¬ï¼›å¦‚æžœæ²¡æœ‰ï¼Œè¯·å‚ç…§<http://www.gnu.org/licenses/>.
 
-    Í¬Ê±¸½ÉÏÈçºÎÒÔµç×Ó¼°ÊéÃæÐÅ¼þÓëÄúÁªÏµµÄ×ÊÁÏ¡£
+    åŒæ—¶é™„ä¸Šå¦‚ä½•ä»¥ç”µå­åŠä¹¦é¢ä¿¡ä»¶ä¸Žæ‚¨è”ç³»çš„èµ„æ–™ã€‚
 
-    ±¾³ÌÐò²»¸ºÈÎºÎµ£±£ÔðÈÎ¡£
+    æœ¬ç¨‹åºä¸è´Ÿä»»ä½•æ‹…ä¿è´£ä»»ã€‚
 
-    ÕâÊÇÒ»¸ö×ÔÓÉÈí¼þ£¬»¶Ó­ÄúÔÚÌØ¶¨Ìõ¼þÏÂÔÙ·¢²¼±¾³ÌÐò¡£
+    è¿™æ˜¯ä¸€ä¸ªè‡ªç”±è½¯ä»¶ï¼Œæ¬¢è¿Žæ‚¨åœ¨ç‰¹å®šæ¡ä»¶ä¸‹å†å‘å¸ƒæœ¬ç¨‹åºã€‚
