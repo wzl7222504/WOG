@@ -1,20 +1,15 @@
 package netsurfers.gicp.net.provider;
 
 import netsurfers.gicp.net.util.Constants;
-
 import android.content.ContentProvider;
 import android.content.ContentValues;
-import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.net.Uri;
-import android.util.Log;
 
 public class DatabaseProvider extends ContentProvider {
 
-	private static final String AUTHORRITIES = "netsurfers.gicp.net.provider";
+	private static final String AUTHORRITIES = "netsurfers.gicp.net.provider.DatabaseProvider";
 	public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORRITIES);
 	
     private static final String DATABASE_NAME = "database.db";
@@ -51,7 +46,9 @@ public class DatabaseProvider extends ContentProvider {
 	public Cursor query(Uri uri, String[] projection, String selection,
 			String[] selectionArgs, String sortOrder) {
 		// TODO Auto-generated method stub
-		return null;
+		SQLiteDatabase db = mOpenHelper.getReadableDatabase();
+		Cursor c = db.query(Constants.DATABASE_TABLE_NAME[0], projection, null, null, null, null, null);
+		return c;
 	}
 
 	@Override

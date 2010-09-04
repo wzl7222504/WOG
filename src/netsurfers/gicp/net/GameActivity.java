@@ -3,6 +3,7 @@ package netsurfers.gicp.net;
 import netsurfers.gicp.net.provider.DatabaseProvider;
 import android.app.Activity;
 import android.content.ContentResolver;
+import android.database.Cursor;
 import android.os.Bundle;
 
 public class GameActivity extends Activity implements Runnable {
@@ -13,7 +14,8 @@ public class GameActivity extends Activity implements Runnable {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.gamelayout);
 		ContentResolver cr = getContentResolver();
-		cr.query(DatabaseProvider.CONTENT_URI, null, null, null, null);
+		Cursor cursor = cr.query(DatabaseProvider.CONTENT_URI, null, null, null, null);
+		cursor.moveToFirst();
 	}
 
 	@Override
