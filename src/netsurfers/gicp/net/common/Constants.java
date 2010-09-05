@@ -1,7 +1,9 @@
-package netsurfers.gicp.net.util;
+package netsurfers.gicp.net.common;
 
 public class Constants {
-
+	public static final int SCREEM_WIDTH = 320;
+	public static final int SCREEM_HEIGHT = 480;
+	public static final long FRAME_INTERVAL = 150;
 	public static final String DATABASE_TABLE_NAME[] = {
 		"character",				// 0玩家存档表
 		"character_equipmentsets",	// 1玩家装备表

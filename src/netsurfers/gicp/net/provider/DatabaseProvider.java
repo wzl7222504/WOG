@@ -1,6 +1,6 @@
 package netsurfers.gicp.net.provider;
 
-import netsurfers.gicp.net.util.Constants;
+import netsurfers.gicp.net.common.Constants;
 import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.database.Cursor;
