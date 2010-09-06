@@ -8,7 +8,7 @@
 		<provider android:authorities="netsurfers.gicp.net.provider.DatabaseProvider" android:name=".provider.DatabaseProvider">
 		</provider>
 		
-		<activity android:name=".GameActivity">
+		<activity android:name=".GameActivity" android:configChanges="keyboardHidden|orientation">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

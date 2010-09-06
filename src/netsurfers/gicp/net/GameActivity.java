@@ -1,12 +1,16 @@
 package netsurfers.gicp.net;
 
+import netsurfers.gicp.net.common.Constants;
 import netsurfers.gicp.net.provider.DatabaseProvider;
 import netsurfers.gicp.net.ui.GameView;
 
 import android.app.Activity;
 import android.content.ContentResolver;
+import android.content.res.Configuration;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.Window;
 import android.view.WindowManager;
 

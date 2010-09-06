@@ -1,8 +1,10 @@
 package netsurfers.gicp.net.common;
 
 public class Constants {
-	public static final int SCREEM_WIDTH = 320;
-	public static final int SCREEM_HEIGHT = 480;
+	public static float SCREEM_WIDTH_DEFAULT = 320F;
+	public static float SCREEM_HEIGHT_DEFAULT = 480F;
+	public static float SCREEM_HALF_WIDTH = SCREEM_WIDTH_DEFAULT/2;
+	public static float SCREEM_HALF_HEIGHT = SCREEM_HEIGHT_DEFAULT/2;
 	public static final long FRAME_INTERVAL = 150;
 	public static final String DATABASE_TABLE_NAME[] = {
 		"character",				// 0Íæ¼Ò´æµµ±í
@@ -30,5 +32,12 @@ public class Constants {
 	public static final String DATABASE_TABLE00_COLUMN_NAME[] = {
 		"guid",
 		"test"
+	};
+	public static enum PLAYER_STATE {
+		NOTHING,
+		UP,
+		DOWN,
+		LEFT,
+		RIGHT
 	};
 }
