@@ -5,7 +5,7 @@ public class Constants {
 	public static float SCREEM_HEIGHT_DEFAULT = 480F;
 	public static float SCREEM_HALF_WIDTH = SCREEM_WIDTH_DEFAULT/2;
 	public static float SCREEM_HALF_HEIGHT = SCREEM_HEIGHT_DEFAULT/2;
-	public static final long FRAME_INTERVAL = 150;
+	public static final long FRAME_INTERVAL = 65;
 	public static final String DATABASE_TABLE_NAME[] = {
 		"character",				// 0玩家存档表
 		"character_equipmentsets",	// 1玩家装备表

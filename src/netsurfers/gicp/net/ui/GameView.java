@@ -15,6 +15,7 @@ import android.view.SurfaceHolder;
 
 public class GameView extends ArcadeView {
 
+	@SuppressWarnings("unused")
 	private Context mContext;
 	private SurfaceHolder holder;
 	private Paint mPaint;
@@ -170,17 +171,16 @@ public class GameView extends ArcadeView {
 		return super.onTouchEvent(event);
 	}
 	
-	@Override
-	protected void onDraw(Canvas canvas) {
+	protected void Draw(Canvas canvas) {
 		// TODO Auto-generated method stub
 		super.dispatchDraw(canvas);
 		mPaint.setColor(Color.GREEN);
-		float x=40-mCurX%40;
-		float y=40-mCurY%40;
-		float count = (Constants.SCREEM_HALF_HEIGHT+Constants.SCREEM_HALF_WIDTH+40F)/2;
+		float x=(int)mCurX%40+(mCurX-(int)mCurX);
+		float y=(int)mCurY%40+(mCurY-(int)mCurY);
+		float count = (Constants.SCREEM_HEIGHT_DEFAULT+Constants.SCREEM_WIDTH_DEFAULT+40F)/20;
 		for(int i = 0;i<count;++i) {
-			canvas.drawLine(x-40F, -Constants.SCREEM_HALF_WIDTH+(i-2)*20F+y, Constants.SCREEM_WIDTH_DEFAULT+x, (i-1)*20F+y, mPaint);
-			canvas.drawLine(x-40F, (i-1)*20F+y, Constants.SCREEM_WIDTH_DEFAULT+x, -Constants.SCREEM_HALF_WIDTH+(i-2)*20F+y, mPaint);
+			canvas.drawLine(-x-40F, -Constants.SCREEM_HALF_WIDTH+(i-2)*20F-y, Constants.SCREEM_WIDTH_DEFAULT-x+40F, i*20F-y, mPaint);
+			canvas.drawLine(-x-40F, i*20F-y, Constants.SCREEM_WIDTH_DEFAULT-x+40F, -Constants.SCREEM_HALF_WIDTH+(i-2)*20F-y, mPaint);
 		}
 		mPaint.setColor(Color.RED);
 		canvas.drawRect(new RectF(Constants.SCREEM_HALF_WIDTH-10F, Constants.SCREEM_HALF_HEIGHT-10F,
@@ -203,19 +203,19 @@ public class GameView extends ArcadeView {
                     	canvas = holder.lockCanvas(null);//»ñÈ¡»­²¼
                     	switch(mPlayerState) {
                     	case UP:
-                    		mCurY--;
+                    		mCurY-=1.6;
                     		break;
                     	case DOWN:
-                    		mCurY++;
+                    		mCurY+=1.6;
                     		break;
                     	case LEFT:
-                    		mCurX--;
+                    		mCurX-=3.2;
                     		break;
                     	case RIGHT:
-                    		mCurX++;
+                    		mCurX+=3.2;
                     		break;
                     	}
-                    	onDraw(canvas);
+                    	Draw(canvas);
                     	holder.unlockCanvasAndPost(canvas);
                     }
                     frameTick = System.currentTimeMillis();
