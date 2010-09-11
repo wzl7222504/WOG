@@ -33,8 +33,8 @@ public class Constants {
 		"guid",
 		"test"
 	};
-	public static enum PLAYER_STATE {
-		NOTHING,
+	public static enum ORIENTATION {
+		DEFAULT,
 		UP,
 		DOWN,
 		LEFT,

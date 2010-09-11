@@ -1,5 +1,7 @@
 package netsurfers.gicp.net.common;
 
+import java.util.Random;
+
 import netsurfers.gicp.net.R;
 
 import android.app.AlertDialog;
@@ -10,6 +12,25 @@ import android.net.Uri;
 import android.widget.Toast;
 
 public class Tools {
+	public static String mRandomName[][] = {
+		{"ÕÅ", "³¾Ñï"},
+		{"Àî", "ıˆ³É"},
+		{"Íõ", "Ä½»ª"},
+		{"ÕÔ", "ÉÙË§"},
+		{"¶Î", "ÀÖÀÖ"},
+		{"Ïô", "Ìì"},
+		{"Áõ", "Ğ¥"},
+		{"Éê", "°Á"},
+		{"Ä½Èİ", "Îä"},
+		{"Å·Ñô", "ÁÖ"},
+		{"Áîºü", "·å"}
+	};
+	static Random mRandom = new Random();
+	
+	public static int getRandom(int maxvalue){
+		return mRandom.nextInt(maxvalue);
+	}
+	
 	static public void launchBrowser(Context ctx, String url) {
     	ctx.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));   
     }

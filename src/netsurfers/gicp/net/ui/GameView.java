@@ -1,11 +1,15 @@
 package netsurfers.gicp.net.ui;
 
 import netsurfers.gicp.net.common.Constants;
+import netsurfers.gicp.net.common.BitmapMgr;
+import netsurfers.gicp.net.common.Constants.ORIENTATION;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -15,14 +19,17 @@ import android.view.SurfaceHolder;
 
 public class GameView extends ArcadeView {
 
+	public Constants.ORIENTATION mPlayerState;
+	
+	private float mCurrentX=0;
+	private float mCurrentY=0;
+	private int mCurrentFrame=0;
 	@SuppressWarnings("unused")
 	private Context mContext;
 	private SurfaceHolder holder;
 	private Paint mPaint;
 	private Thread mThread;
-	public Constants.PLAYER_STATE mPlayerState;
-	private float mCurX=160;
-	private float mCurY=240;
+	private BitmapMgr mBitmapMgr;
 	
 	public GameView(Context context) {
 		super(context);
@@ -57,7 +64,7 @@ public class GameView extends ArcadeView {
 	@Override
 	protected void initialize() {
 		// TODO Auto-generated method stub
-		mPlayerState = Constants.PLAYER_STATE.NOTHING;
+		mPlayerState = Constants.ORIENTATION.DEFAULT;
 	}
 	
 	@Override
@@ -92,16 +99,16 @@ public class GameView extends ArcadeView {
 		// TODO Auto-generated method stub
 		switch(keyCode) {
 			case KeyEvent.KEYCODE_DPAD_DOWN:
-				mPlayerState = Constants.PLAYER_STATE.DOWN;
+				mPlayerState = Constants.ORIENTATION.DOWN;
 				break;
 			case KeyEvent.KEYCODE_DPAD_LEFT:
-				mPlayerState = Constants.PLAYER_STATE.LEFT;
+				mPlayerState = Constants.ORIENTATION.LEFT;
 				break;
 			case KeyEvent.KEYCODE_DPAD_UP:
-				mPlayerState = Constants.PLAYER_STATE.UP;
+				mPlayerState = Constants.ORIENTATION.UP;
 				break;
 			case KeyEvent.KEYCODE_DPAD_RIGHT:
-				mPlayerState = Constants.PLAYER_STATE.RIGHT;
+				mPlayerState = Constants.ORIENTATION.RIGHT;
 				break;
 			case KeyEvent.KEYCODE_BACK:
 				System.exit(0);
@@ -117,16 +124,16 @@ public class GameView extends ArcadeView {
 		// TODO Auto-generated method stub
 		switch(keyCode) {
 			case KeyEvent.KEYCODE_DPAD_DOWN:
-				mPlayerState = Constants.PLAYER_STATE.NOTHING;
+				mPlayerState = Constants.ORIENTATION.DEFAULT;
 				break;
 			case KeyEvent.KEYCODE_DPAD_LEFT:
-				mPlayerState = Constants.PLAYER_STATE.NOTHING;
+				mPlayerState = Constants.ORIENTATION.DEFAULT;
 				break;
 			case KeyEvent.KEYCODE_DPAD_UP:
-				mPlayerState = Constants.PLAYER_STATE.NOTHING;
+				mPlayerState = Constants.ORIENTATION.DEFAULT;
 				break;
 			case KeyEvent.KEYCODE_DPAD_RIGHT:
-				mPlayerState = Constants.PLAYER_STATE.NOTHING;
+				mPlayerState = Constants.ORIENTATION.DEFAULT;
 				break;
 			default:
 				break;
@@ -142,49 +149,33 @@ public class GameView extends ArcadeView {
 		switch(event.getAction()) {
 		case MotionEvent.ACTION_DOWN:
 			if((x-Constants.SCREEM_HALF_WIDTH) > 3F*(y-Constants.SCREEM_HALF_HEIGHT) && (x-Constants.SCREEM_HALF_WIDTH) >= -3*(y-Constants.SCREEM_HALF_HEIGHT))
-				mPlayerState = Constants.PLAYER_STATE.RIGHT;
+				mPlayerState = Constants.ORIENTATION.RIGHT;
 			else if(-3F*(x-Constants.SCREEM_HALF_WIDTH) > (y-Constants.SCREEM_HALF_HEIGHT) && 3F*(x-Constants.SCREEM_HALF_WIDTH) >= (y-Constants.SCREEM_HALF_HEIGHT))
-				mPlayerState = Constants.PLAYER_STATE.UP;
+				mPlayerState = Constants.ORIENTATION.UP;
 			else if((x-Constants.SCREEM_HALF_WIDTH) < 3*(y-Constants.SCREEM_HALF_HEIGHT) && (x-Constants.SCREEM_HALF_WIDTH) <= -3F*(y-Constants.SCREEM_HALF_HEIGHT))
-				mPlayerState = Constants.PLAYER_STATE.LEFT;
+				mPlayerState = Constants.ORIENTATION.LEFT;
 			else if(-3F*(x-Constants.SCREEM_HALF_WIDTH) < (y-Constants.SCREEM_HALF_HEIGHT) && 3F*(x-Constants.SCREEM_HALF_WIDTH) <= (y-Constants.SCREEM_HALF_HEIGHT))
-				mPlayerState = Constants.PLAYER_STATE.DOWN;
+				mPlayerState = Constants.ORIENTATION.DOWN;
 			else 
-				mPlayerState = Constants.PLAYER_STATE.NOTHING;
+				mPlayerState = Constants.ORIENTATION.DEFAULT;
 			break;
 		case MotionEvent.ACTION_MOVE:
 			if((x-Constants.SCREEM_HALF_WIDTH) > 3F*(y-Constants.SCREEM_HALF_HEIGHT) && (x-Constants.SCREEM_HALF_WIDTH) >= -3*(y-Constants.SCREEM_HALF_HEIGHT))
-				mPlayerState = Constants.PLAYER_STATE.RIGHT;
+				mPlayerState = Constants.ORIENTATION.RIGHT;
 			else if(-3F*(x-Constants.SCREEM_HALF_WIDTH) > (y-Constants.SCREEM_HALF_HEIGHT) && 3F*(x-Constants.SCREEM_HALF_WIDTH) >= (y-Constants.SCREEM_HALF_HEIGHT))
-				mPlayerState = Constants.PLAYER_STATE.UP;
+				mPlayerState = Constants.ORIENTATION.UP;
 			else if((x-Constants.SCREEM_HALF_WIDTH) < 3*(y-Constants.SCREEM_HALF_HEIGHT) && (x-Constants.SCREEM_HALF_WIDTH) <= -3F*(y-Constants.SCREEM_HALF_HEIGHT))
-				mPlayerState = Constants.PLAYER_STATE.LEFT;
+				mPlayerState = Constants.ORIENTATION.LEFT;
 			else if(-3F*(x-Constants.SCREEM_HALF_WIDTH) < (y-Constants.SCREEM_HALF_HEIGHT) && 3F*(x-Constants.SCREEM_HALF_WIDTH) <= (y-Constants.SCREEM_HALF_HEIGHT))
-				mPlayerState = Constants.PLAYER_STATE.DOWN;
+				mPlayerState = Constants.ORIENTATION.DOWN;
 			else 
-				mPlayerState = Constants.PLAYER_STATE.NOTHING;
+				mPlayerState = Constants.ORIENTATION.DEFAULT;
 			break;
 		case MotionEvent.ACTION_UP:
-			mPlayerState = Constants.PLAYER_STATE.NOTHING;
+			mPlayerState = Constants.ORIENTATION.DEFAULT;
 			break;
 		}
 		return super.onTouchEvent(event);
-	}
-	
-	protected void Draw(Canvas canvas) {
-		// TODO Auto-generated method stub
-		super.dispatchDraw(canvas);
-		mPaint.setColor(Color.GREEN);
-		float x=(int)mCurX%40+(mCurX-(int)mCurX);
-		float y=(int)mCurY%40+(mCurY-(int)mCurY);
-		float count = (Constants.SCREEM_HEIGHT_DEFAULT+Constants.SCREEM_WIDTH_DEFAULT+40F)/20;
-		for(int i = 0;i<count;++i) {
-			canvas.drawLine(-x-40F, -Constants.SCREEM_HALF_WIDTH+(i-2)*20F-y, Constants.SCREEM_WIDTH_DEFAULT-x+40F, i*20F-y, mPaint);
-			canvas.drawLine(-x-40F, i*20F-y, Constants.SCREEM_WIDTH_DEFAULT-x+40F, -Constants.SCREEM_HALF_WIDTH+(i-2)*20F-y, mPaint);
-		}
-		mPaint.setColor(Color.RED);
-		canvas.drawRect(new RectF(Constants.SCREEM_HALF_WIDTH-10F, Constants.SCREEM_HALF_HEIGHT-10F,
-			Constants.SCREEM_HALF_WIDTH+10F, Constants.SCREEM_HALF_HEIGHT+10F), mPaint);
 	}
 	
 	@Override
@@ -203,16 +194,16 @@ public class GameView extends ArcadeView {
                     	canvas = holder.lockCanvas(null);//»ñÈ¡»­²¼
                     	switch(mPlayerState) {
                     	case UP:
-                    		mCurY-=1.6;
+                    		mCurrentY-=1.6;
                     		break;
                     	case DOWN:
-                    		mCurY+=1.6;
+                    		mCurrentY+=1.6;
                     		break;
                     	case LEFT:
-                    		mCurX-=3.2;
+                    		mCurrentX-=3.2;
                     		break;
                     	case RIGHT:
-                    		mCurX+=3.2;
+                    		mCurrentX+=3.2;
                     		break;
                     	}
                     	Draw(canvas);
@@ -224,5 +215,90 @@ public class GameView extends ArcadeView {
         	e.printStackTrace();
         	Log.e("ERROR GameView-run: ", e.toString());
         }
+	}
+	
+	private void Draw(Canvas canvas) {
+		// TODO Auto-generated method stub
+		super.dispatchDraw(canvas);
+		mPaint.setColor(Color.GREEN);
+		float x=(int)mCurrentX%40+(mCurrentX-(int)mCurrentX);
+		float y=(int)mCurrentY%40+(mCurrentY-(int)mCurrentY);
+		float count = (Constants.SCREEM_HEIGHT_DEFAULT+Constants.SCREEM_WIDTH_DEFAULT+40F)/20;
+		for(int i = 0;i<count;++i) {
+			canvas.drawLine(-x-40F, -Constants.SCREEM_HALF_WIDTH+(i-2)*20F-y, Constants.SCREEM_WIDTH_DEFAULT-x+40F, i*20F-y, mPaint);
+			canvas.drawLine(-x-40F, i*20F-y, Constants.SCREEM_WIDTH_DEFAULT-x+40F, -Constants.SCREEM_HALF_WIDTH+(i-2)*20F-y, mPaint);
+		}
+		mPaint.setColor(Color.RED);
+		drawFrame(mBitmapMgr.getPlayerBitmap(mBitmapMgr.PLAYER[0]),8,8,getCurrentFrame(),Constants.SCREEM_HALF_WIDTH-20F, Constants.SCREEM_HALF_HEIGHT-20F,canvas);
+	}
+	
+	public int getCurrentFrame(){
+		switch(mPlayerState) {
+		case DEFAULT:
+			mCurrentFrame = mCurrentFrame-mCurrentFrame%8;
+			break;
+		case UP:
+			mCurrentFrame = mCurrentFrame%3+1;
+			break;
+		case DOWN:
+			mCurrentFrame = Math.abs(mCurrentFrame-8)%3+9;
+			break;
+		case LEFT:
+			mCurrentFrame = Math.abs(mCurrentFrame-16)%3+17;
+			break;
+		case RIGHT:
+			mCurrentFrame = Math.abs(mCurrentFrame-24)%3+25;
+			break;
+		}
+		return mCurrentFrame;
+	}
+	
+	public void drawFrame(Bitmap bitmap,int column,int row,int currentframe,float x,float y,Canvas cv)
+	{
+		int width, height;
+		width = bitmap.getWidth();
+		height = bitmap.getHeight();
+		Rect src = new Rect();
+		RectF dst = new RectF();
+		src.set((currentframe%column)*width/column, (currentframe/column)*height/row,
+				width/column+(currentframe%column)*width/column, height/row+(currentframe/column)*height/row);
+		dst.set(x, y, width/column+x, height/row+y);
+		cv.drawBitmap(bitmap, src, dst, mPaint);
+	}
+	
+	public void drawImage(Bitmap bitmap, Rect src, RectF dst, Canvas cv) {
+		cv.drawBitmap(bitmap, src, dst, mPaint);
+	}
+	
+	public void drawText(String str, float x, float y, Canvas cv)  {
+		cv.drawText(str, x, y, mPaint);
+	}
+	
+	public void setBitmapMgr(BitmapMgr bm) {
+		mBitmapMgr = bm;
+	}
+	
+	public float getCurrentX() {
+		return mCurrentX;
+	}
+	
+	public void setCurrentX(float x) {
+		mCurrentX = x;
+	}
+	
+	public float getCurrentY() {
+		return mCurrentY;
+	}
+	
+	public void setCurrentY(float y) {
+		mCurrentY = y;
+	}
+	
+	public ORIENTATION getPlayerState() {
+		return mPlayerState;
+	}
+	
+	public void setPlayerState(ORIENTATION orient) {
+		mPlayerState = orient;
 	}
 }
