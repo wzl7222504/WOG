@@ -11,6 +11,11 @@ import android.content.Intent;
 import android.net.Uri;
 import android.widget.Toast;
 
+/**
+ * Class tools include some tools for example message box.
+ * @author Ziliang Wang
+ * E-mail: Lional.King@gmail.com
+ */
 public class Tools {
 	public static String mRandomName[][] = {
 		{"’≈", "≥æ—Ô"},

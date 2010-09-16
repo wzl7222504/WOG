@@ -9,6 +9,11 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
+/**
+ * This class manager all the bitmap source.
+ * @author Ziliang Wang
+ * E-mail: Lional.King@gmail.com
+ */
 public class BitmapMgr {
 
 	public final int [] BITMAP = {
@@ -74,11 +79,20 @@ public class BitmapMgr {
 	
 	private Resources mResources;
 	
+	/**
+	 * Constructor function of bitmap manager.
+	 * @param res
+	 * Resources is from the application program
+	 * @see android.app.Activity#getResources()
+	 */
 	public BitmapMgr(Resources res) {
 		mResources = res;
 		onInitialize();
 	}
 	
+	/**
+	 * Initialize this class when construct it.
+	 */
 	private void onInitialize(){
 		for(int i = 0; i < BITMAP.length; ++i)
 			if(null != mBitmaps.get(BITMAP[i]))
@@ -100,10 +114,20 @@ public class BitmapMgr {
 				mSpells.remove(SPELL[i]);
 	}
 	
+	/**
+	 * You can set bitmap by resources id.
+	 * @param id
+	 * Res is the resources id in {@link R}}
+	 */
 	public Bitmap setBitmap(int id){
 		return BitmapFactory.decodeResource(mResources,id);
 	}
 	
+	/**
+	 * You can get bitmap by resources id.
+	 * @param id
+	 * Res is the resources id in {@link R}}
+	 */
 	public Bitmap getBitmap(int id){
 		if(false == mBitmaps.containsKey(id)){
 			mBitmaps.put(id, setBitmap(id));
@@ -111,12 +135,22 @@ public class BitmapMgr {
 		return mBitmaps.get(id);
 	}
 	
+	/**
+	 * You can release bitmap by resources id.
+	 * @param id
+	 * Res is the resources id in {@link R}}
+	 */
 	public void releaseBitmap(int id){
 		if(false != mBitmaps.containsKey(id)){
 			mBitmaps.remove(id);
 		}
 	}
 	
+	/**
+	 * You can get player bitmap by resources id.
+	 * @param id
+	 * Res is the resources id in {@link R}}
+	 */
 	public Bitmap getPlayerBitmap(int id){
 		if(false == mPlayers.containsKey(id)){
 			mPlayers.put(id, setBitmap(id));
@@ -124,12 +158,22 @@ public class BitmapMgr {
 		return mPlayers.get(id);
 	}
 	
+	/**
+	 * You can release player bitmap by resources id.
+	 * @param id
+	 * Res is the resources id in {@link R}}
+	 */
 	public void releasePlayerBitmap(int id){
 		if(false != mPlayers.containsKey(id)){
 			mPlayers.remove(id);
 		}
 	}
 	
+	/**
+	 * You can get creature bitmap by resources id.
+	 * @param id
+	 * Res is the resources id in {@link R}}
+	 */
 	public Bitmap getCreatureBitmap(int id){
 		if(false == mCreatures.containsKey(id)){
 			mCreatures.put(id, setBitmap(id));
@@ -137,12 +181,22 @@ public class BitmapMgr {
 		return mCreatures.get(id);
 	}
 	
+	/**
+	 * You can release creature bitmap by resources id.
+	 * @param id
+	 * Res is the resources id in {@link R}}
+	 */
 	public void releaseCreatureBitmap(int id){
 		if(false != mCreatures.containsKey(id)){
 			mCreatures.remove(id);
 		}
 	}
 	
+	/**
+	 * You can get game object bitmap by resources id.
+	 * @param id
+	 * Res is the resources id in {@link R}}
+	 */
 	public Bitmap getGameObjectBitmap(int id){
 		if(false == mGameObjects.containsKey(id)){
 			mGameObjects.put(id, setBitmap(id));
@@ -150,12 +204,22 @@ public class BitmapMgr {
 		return mGameObjects.get(id);
 	}
 	
+	/**
+	 * You can release game object bitmap by resources id.
+	 * @param id
+	 * Res is the resources id in {@link R}}
+	 */
 	public void releaseGameObjectBitmap(int id){
 		if(false != mGameObjects.containsKey(id)){
 			mGameObjects.remove(id);
 		}
 	}
 	
+	/**
+	 * You can get item bitmap by resources id.
+	 * @param id
+	 * Res is the resources id in {@link R}}
+	 */
 	public Bitmap getItemBitmap(int id){
 		if(false == mItems.containsKey(id)){
 			mItems.put(id, setBitmap(id));
@@ -163,12 +227,22 @@ public class BitmapMgr {
 		return mItems.get(id);
 	}
 	
+	/**
+	 * You can release item bitmap by resources id.
+	 * @param id
+	 * Res is the resources id in {@link R}}
+	 */
 	public void releaseItemBitmap(int id){
 		if(false != mItems.containsKey(id)){
 			mItems.remove(id);
 		}
 	}
 	
+	/**
+	 * You can get spell bitmap by resources id.
+	 * @param id
+	 * Res is the resources id in {@link R}}
+	 */
 	public Bitmap getSpellBitmap(int id){
 		if(false == mSpells.containsKey(id)){
 			mSpells.put(id, setBitmap(id));
@@ -176,12 +250,20 @@ public class BitmapMgr {
 		return mSpells.get(id);
 	}
 	
+	/**
+	 * You can release spell bitmap by resources id.
+	 * @param id
+	 * Res is the resources id in {@link R}}
+	 */
 	public void releaseSpellBitmap(int id){
 		if(false != mSpells.containsKey(id)){
 			mSpells.remove(id);
 		}
 	}
 	
+	/**
+	 * You can release all of the bitmap.
+	 */
 	public void release(){
 		for(int i = 0; i < BITMAP.length; ++i)
 			if(null != mBitmaps.get(BITMAP[i]))
