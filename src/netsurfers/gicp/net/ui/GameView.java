@@ -220,6 +220,8 @@ public class GameView extends ArcadeView {
 	private void Draw(Canvas canvas) {
 		// TODO Auto-generated method stub
 		super.dispatchDraw(canvas);
+		
+		// TODO Draw the background
 		mPaint.setColor(Color.GREEN);
 		float x=(int)mCurrentX%40+(mCurrentX-(int)mCurrentX);
 		float y=(int)mCurrentY%40+(mCurrentY-(int)mCurrentY);
@@ -228,8 +230,21 @@ public class GameView extends ArcadeView {
 			canvas.drawLine(-x-40F, -Constants.SCREEM_HALF_WIDTH+(i-2)*20F-y, Constants.SCREEM_WIDTH_DEFAULT-x+40F, i*20F-y, mPaint);
 			canvas.drawLine(-x-40F, i*20F-y, Constants.SCREEM_WIDTH_DEFAULT-x+40F, -Constants.SCREEM_HALF_WIDTH+(i-2)*20F-y, mPaint);
 		}
+		
+		// TODO Render the background
+		mPaint.setColor(Color.GRAY);
+		
+		// TODO Draw the game view
 		mPaint.setColor(Color.RED);
-		drawFrame(mBitmapMgr.getPlayerBitmap(mBitmapMgr.PLAYER[0]),8,8,getCurrentFrame(),Constants.SCREEM_HALF_WIDTH-20F, Constants.SCREEM_HALF_HEIGHT-20F,canvas);
+		drawFrame(mBitmapMgr.getPlayerBitmap(mBitmapMgr.PLAYER[1]),8,8,getCurrentFrame(),Constants.SCREEM_HALF_WIDTH-20F, Constants.SCREEM_HALF_HEIGHT-20F,canvas);
+		
+		// TODO Draw the boards and bars
+		mPaint.setColor(Color.YELLOW);
+		drawFrame(mBitmapMgr.getBitmap(mBitmapMgr.BITMAP[mBitmapMgr.STATEBARS]), 1, 2, 1, 0F, 0F, canvas);
+		drawImage(mBitmapMgr.getBitmap(mBitmapMgr.BITMAP[mBitmapMgr.HEALTHBAR]), 85, 100, 10, canvas);
+		drawImage(mBitmapMgr.getBitmap(mBitmapMgr.BITMAP[mBitmapMgr.MANABAR]), 50, 100, 0, canvas);
+		drawImage(mBitmapMgr.getBitmap(mBitmapMgr.BITMAP[mBitmapMgr.MENUBAR]), Constants.SCREEM_WIDTH_DEFAULT-40, Constants.SCREEM_HALF_HEIGHT-120, canvas);
+		drawImage(mBitmapMgr.getBitmap(mBitmapMgr.BITMAP[mBitmapMgr.ACTIONBAR]), Constants.SCREEM_HALF_WIDTH-160, Constants.SCREEM_HEIGHT_DEFAULT-80, canvas);
 	}
 	
 	public int getCurrentFrame(){
@@ -266,8 +281,26 @@ public class GameView extends ArcadeView {
 		cv.drawBitmap(bitmap, src, dst, mPaint);
 	}
 	
+	/**
+	 * Draw the HP and MP on left top.
+	 * @param bitmap
+	 * @param cur
+	 * @param max
+	 * @param dis
+	 * @param cv
+	 */
+	public void drawImage(Bitmap bitmap, int cur, int max, int dis, Canvas cv) {
+		Rect current = new Rect();
+		current.set(0, 0, 40+(108+dis)*cur/max, 40);
+		cv.drawBitmap(bitmap, current, current, mPaint);
+	}
+	
 	public void drawImage(Bitmap bitmap, Rect src, RectF dst, Canvas cv) {
 		cv.drawBitmap(bitmap, src, dst, mPaint);
+	}
+	
+	public void drawImage(Bitmap bitmap, float x, float y, Canvas cv) {
+		cv.drawBitmap(bitmap, x, y, mPaint);
 	}
 	
 	public void drawText(String str, float x, float y, Canvas cv)  {
