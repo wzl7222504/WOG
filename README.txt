@@ -1,11 +1,20 @@
-WOG是World of Greenwood的缩写，是一个自由，开源的游戏
-    WOG是一款在Android手机上的角色扮演游戏，由sqlite数据库控制游戏内容
-WOG源代码放在github上，网址为：http://github.com/wzl7222504/WOG
-关于WOG的问题可以提交至：http://netsurfers.gicp.net/discuz
+    WOG是World of Greenwood的缩写，是一个自由，开源的游戏
 
-	版权所有(C) 2010 冲浪网netsurfers.gicp.net
+    WOG是一款在Android手机上的角色扮演游戏，创始人邮箱Lioanl.King@gmail.com
+    
+    WOG源代码放在github上，网址为：http://github.com/wzl7222504/WOG
+    
+    关于WOG的问题可以提交至：http://netsurfers.gicp.net/bbs
 
-    本程序为自由软件；您可依据自由软件基金会所发表的GNU 通用公共授权条款，对本程序再次发布和/ 或修改；无论您依据的是本授权的第三版，或（您可选的）任一日后发行的版本。
+    支持任意大小屏幕，横竖屏显示
+    
+    使用自定义基于Sqlite的Provider派生类存储数据
+    
+    通过SurfaceView派生类绘图响应用户操作
+
+    版权所有(C) 2010 冲浪网netsurfers.gicp.net
+
+    本程序为自由软件；您可依据自由软件基金会所发表的GNU 通用公共授权条款，对本程序再次发布或修改；无论您依据的是本授权的第三版，或（您可选的）任一日后发行的版本。
 
     本程序是基于使用目的而加以发布，然而不负任何担保责任；亦无对适售性或特定目的适用性所为的默示性担保。详情请参照GNU 通用公共授权。
 
