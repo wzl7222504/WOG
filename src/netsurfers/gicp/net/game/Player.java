@@ -6,6 +6,11 @@ import netsurfers.gicp.net.common.Tools;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class player.
+ * @author Ziliang Wang
+ * E-mail: Lional.King@gmail.com
+ */
 public class Player {
 	final int mSpeed = 4;
 	boolean mMoving;

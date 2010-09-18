@@ -1,5 +1,10 @@
 package  netsurfers.gicp.net.game;
 
+/**
+ * Class world will manage the clock of the game.
+ * @author Ziliang Wang
+ * E-mail: Lional.King@gmail.com
+ */
 public class World {
 	long mUpdateFrequency;
 	long mCurrentTimeMillis;

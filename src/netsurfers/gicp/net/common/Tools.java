@@ -32,23 +32,47 @@ public class Tools {
 	};
 	static Random mRandom = new Random();
 	
+	/**
+	 * You can get a random number from 0 to max value.
+	 * @param maxvalue
+	 * The max of the random number.
+	 * @return
+	 * Return a random number.
+	 */
 	public static int getRandom(int maxvalue){
 		return mRandom.nextInt(maxvalue);
 	}
 	
+	/**
+	 * Start a new activity which include action view.
+	 * @param ctx
+	 * The context of this activity.
+	 * @param url
+	 * The URI of this activity.
+	 */
 	static public void launchBrowser(Context ctx, String url) {
     	ctx.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));   
     }
     
-    
+    /**
+     * Message box will be created.
+     * @param ctx
+     * The context of this toast.
+     * @param text
+     * The text of this toast.
+     */
     public static void MessageBox( final Context ctx, final String text) {
     	Toast.makeText(ctx, text, Toast.LENGTH_LONG).show();
     }
     
     /**
-     * Helper Alert
+     * Helper Alert will be created.
+     * @param ctx
+     * The context of this alert dialog.
      * @param title
+     * The title of this alert dialog.
      * @param message
+     * The message of this alert dialog.
      */
     public static void AlertDialog(final Context ctx, final CharSequence title, final CharSequence message) {
 		new AlertDialog.Builder(ctx)

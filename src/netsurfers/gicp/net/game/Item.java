@@ -1,5 +1,10 @@
 package  netsurfers.gicp.net.game;
 
+/**
+ * Class item is the equipment of the player.
+ * @author Ziliang Wang
+ * E-mail: Lional.King@gmail.com
+ */
 public class Item {
 	int mID;
 	int mType;

@@ -3,6 +3,11 @@ package  netsurfers.gicp.net.game;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class maps will manage the background.
+ * @author Ziliang Wang
+ * E-mail: Lional.King@gmail.com
+ */
 public class Maps {
 	static final int mCacheColumn = 5;
 	static final int mCacheRow = 6;
