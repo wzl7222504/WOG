@@ -10,9 +10,9 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
 /**
- * This class manager all the bitmap source.
+ * This class manager all the bitmap source
  * @author Ziliang Wang
- * E-mail: Lional.King@gmail.com
+ * @author E-mail: Lional.King@gmail.com
  */
 public class BitmapMgr {
 
@@ -80,7 +80,7 @@ public class BitmapMgr {
 	private Resources mResources;
 	
 	/**
-	 * Constructor function of bitmap manager.
+	 * Constructor function of bitmap manager
 	 * @param res
 	 * Resources is from the application program
 	 * @see android.app.Activity#getResources()
@@ -91,7 +91,7 @@ public class BitmapMgr {
 	}
 	
 	/**
-	 * Initialize this class when construct it.
+	 * Initialize this class when construct it
 	 */
 	private void onInitialize(){
 		for(int i = 0; i < BITMAP.length; ++i)
@@ -115,18 +115,18 @@ public class BitmapMgr {
 	}
 	
 	/**
-	 * You can set bitmap by resources id.
+	 * You can set bitmap by resources id
 	 * @param id
-	 * Res is the resources id in {@link R}}
+	 * Res is the resources id in {@link netsurfers.gicp.net.R}}
 	 */
 	public Bitmap setBitmap(int id){
 		return BitmapFactory.decodeResource(mResources,id);
 	}
 	
 	/**
-	 * You can get bitmap by resources id.
+	 * You can get bitmap by resources id
 	 * @param id
-	 * Res is the resources id in {@link R}}
+	 * Res is the resources id in {@link netsurfers.gicp.net.R}}
 	 */
 	public Bitmap getBitmap(int id){
 		if(false == mBitmaps.containsKey(id)){
@@ -136,9 +136,9 @@ public class BitmapMgr {
 	}
 	
 	/**
-	 * You can release bitmap by resources id.
+	 * You can release bitmap by resources id
 	 * @param id
-	 * Res is the resources id in {@link R}}
+	 * Res is the resources id in {@link netsurfers.gicp.net.R}}
 	 */
 	public void releaseBitmap(int id){
 		if(false != mBitmaps.containsKey(id)){
@@ -147,9 +147,9 @@ public class BitmapMgr {
 	}
 	
 	/**
-	 * You can get player bitmap by resources id.
+	 * You can get player bitmap by resources id
 	 * @param id
-	 * Res is the resources id in {@link R}}
+	 * Res is the resources id in {@link netsurfers.gicp.net.R}}
 	 */
 	public Bitmap getPlayerBitmap(int id){
 		if(false == mPlayers.containsKey(id)){
@@ -159,9 +159,9 @@ public class BitmapMgr {
 	}
 	
 	/**
-	 * You can release player bitmap by resources id.
+	 * You can release player bitmap by resources id
 	 * @param id
-	 * Res is the resources id in {@link R}}
+	 * Res is the resources id in {@link netsurfers.gicp.net.R}}
 	 */
 	public void releasePlayerBitmap(int id){
 		if(false != mPlayers.containsKey(id)){
@@ -170,9 +170,9 @@ public class BitmapMgr {
 	}
 	
 	/**
-	 * You can get creature bitmap by resources id.
+	 * You can get creature bitmap by resources id
 	 * @param id
-	 * Res is the resources id in {@link R}}
+	 * Res is the resources id in {@link netsurfers.gicp.net.R}}
 	 */
 	public Bitmap getCreatureBitmap(int id){
 		if(false == mCreatures.containsKey(id)){
@@ -182,9 +182,9 @@ public class BitmapMgr {
 	}
 	
 	/**
-	 * You can release creature bitmap by resources id.
+	 * You can release creature bitmap by resources id
 	 * @param id
-	 * Res is the resources id in {@link R}}
+	 * Res is the resources id in {@link netsurfers.gicp.net.R}}
 	 */
 	public void releaseCreatureBitmap(int id){
 		if(false != mCreatures.containsKey(id)){
@@ -193,9 +193,9 @@ public class BitmapMgr {
 	}
 	
 	/**
-	 * You can get game object bitmap by resources id.
+	 * You can get game object bitmap by resources id
 	 * @param id
-	 * Res is the resources id in {@link R}}
+	 * Res is the resources id in {@link netsurfers.gicp.net.R}}
 	 */
 	public Bitmap getGameObjectBitmap(int id){
 		if(false == mGameObjects.containsKey(id)){
@@ -205,9 +205,9 @@ public class BitmapMgr {
 	}
 	
 	/**
-	 * You can release game object bitmap by resources id.
+	 * You can release game object bitmap by resources id
 	 * @param id
-	 * Res is the resources id in {@link R}}
+	 * Res is the resources id in {@link netsurfers.gicp.net.R}}
 	 */
 	public void releaseGameObjectBitmap(int id){
 		if(false != mGameObjects.containsKey(id)){
@@ -216,9 +216,9 @@ public class BitmapMgr {
 	}
 	
 	/**
-	 * You can get item bitmap by resources id.
+	 * You can get item bitmap by resources id
 	 * @param id
-	 * Res is the resources id in {@link R}}
+	 * Res is the resources id in {@link netsurfers.gicp.net.R}}
 	 */
 	public Bitmap getItemBitmap(int id){
 		if(false == mItems.containsKey(id)){
@@ -228,9 +228,9 @@ public class BitmapMgr {
 	}
 	
 	/**
-	 * You can release item bitmap by resources id.
+	 * You can release item bitmap by resources id
 	 * @param id
-	 * Res is the resources id in {@link R}}
+	 * Res is the resources id in {@link netsurfers.gicp.net.R}}
 	 */
 	public void releaseItemBitmap(int id){
 		if(false != mItems.containsKey(id)){
@@ -239,9 +239,9 @@ public class BitmapMgr {
 	}
 	
 	/**
-	 * You can get spell bitmap by resources id.
+	 * You can get spell bitmap by resources id
 	 * @param id
-	 * Res is the resources id in {@link R}}
+	 * Res is the resources id in {@link netsurfers.gicp.net.R}}
 	 */
 	public Bitmap getSpellBitmap(int id){
 		if(false == mSpells.containsKey(id)){
@@ -251,9 +251,9 @@ public class BitmapMgr {
 	}
 	
 	/**
-	 * You can release spell bitmap by resources id.
+	 * You can release spell bitmap by resources id
 	 * @param id
-	 * Res is the resources id in {@link R}}
+	 * Res is the resources id in {@link netsurfers.gicp.net.R}}
 	 */
 	public void releaseSpellBitmap(int id){
 		if(false != mSpells.containsKey(id)){
@@ -262,7 +262,7 @@ public class BitmapMgr {
 	}
 	
 	/**
-	 * You can release all of the bitmap.
+	 * You can release all of the bitmap
 	 */
 	public void release(){
 		for(int i = 0; i < BITMAP.length; ++i)

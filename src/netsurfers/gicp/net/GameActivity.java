@@ -16,22 +16,22 @@ import android.view.Window;
 import android.view.WindowManager;
 
 /**
- * GameActivity is the main activity of the game. Extends {@link Activity}
- * and implements {@link Runnable} .This Thread is the game life circle.
+ * GameActivity is the main activity of the game. Extends {@link android.app.Activity}
+ * and implements {@link java.lang.Runnable} .This Thread is the game life circle
  * @author Ziliang Wang
- * E-mail: Lional.King@gmail.com
+ * @author E-mail: Lional.King@gmail.com
  */
 public class GameActivity extends Activity implements Runnable {
 	
 	/**
-	 * Called when the activity is first created. 
+	 * Called when the activity is first created
 	 */
 	private World mWorld;
 	private Thread mThread;
 	private GameView mGameView;
 	
 	/**
-	 * Called when the activity create. 
+	 * Called when the activity is being started
 	 * @see android.app.Activity#onCreate(android.os.Bundle)
 	 */
 	@Override
@@ -64,7 +64,7 @@ public class GameActivity extends Activity implements Runnable {
 	}
 	
 	/**
-	 * Called when the screen orientation change.
+	 * Called when the screen orientation change
 	 * @see android.app.Activity#onConfigurationChanged(android.content.res.Configuration)
 	 */
 	@Override
@@ -78,7 +78,7 @@ public class GameActivity extends Activity implements Runnable {
 	}
 	
 	/**
-	 * The game life circle.
+	 * The game life circle
 	 * @see java.lang.Runnable#run()
 	 */
 	@Override
@@ -102,7 +102,7 @@ public class GameActivity extends Activity implements Runnable {
 	}
 	
 	/**
-	 * Update the game world.
+	 * Update the game world
 	 */
 	private void onUpdate(){
 		mWorld.getMaps().getPlayer().setCurrentX(mGameView.getCurrentX());
@@ -112,7 +112,7 @@ public class GameActivity extends Activity implements Runnable {
 	}
 	
 	/**
-	 * Called when the activity destroy. 
+	 * Called when the activity destroy
 	 * @see android.app.Activity#onDestroy()
 	 */
 	@Override

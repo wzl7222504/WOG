@@ -1,7 +1,7 @@
 package  netsurfers.gicp.net.game;
 
 /**
- * Class spell is the player or creature can use skill or buff.
+ * Class spell is the player or creature can use skill or buff
  * @author Ziliang Wang
  * E-mail: Lional.King@gmail.com
  */

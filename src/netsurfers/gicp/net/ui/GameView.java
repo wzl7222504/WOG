@@ -17,6 +17,11 @@ import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 
+/**
+ * GameView is the main part to display graphics of the game. Extends {@link ArcadeView}
+ * @author Ziliang Wang
+ * @author E-mail: Lional.King@gmail.com
+ */
 public class GameView extends ArcadeView {
 
 	public Constants.ORIENTATION mPlayerState;
@@ -31,6 +36,10 @@ public class GameView extends ArcadeView {
 	private Thread mThread;
 	private BitmapMgr mBitmapMgr;
 	
+	/**
+	 * 
+	 * @param context
+	 */
 	public GameView(Context context) {
 		super(context);
 		// TODO Auto-generated constructor stub
@@ -41,6 +50,11 @@ public class GameView extends ArcadeView {
 		this.setFocusable(true);
 	}
 	
+	/**
+	 * 
+	 * @param context
+	 * @param attrs
+	 */
 	public GameView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		// TODO Auto-generated constructor stub
@@ -51,6 +65,12 @@ public class GameView extends ArcadeView {
 		this.setFocusable(true);
 	}
 	
+	/**
+	 * 
+	 * @param context
+	 * @param attrs
+	 * @param defStyle
+	 */
 	public GameView(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 		// TODO Auto-generated constructor stub
@@ -61,18 +81,30 @@ public class GameView extends ArcadeView {
 		this.setFocusable(true);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see netsurfers.gicp.net.ui.ArcadeView#initialize()
+	 */
 	@Override
 	protected void initialize() {
 		// TODO Auto-generated method stub
 		mPlayerState = Constants.ORIENTATION.DEFAULT;
 	}
 	
+	/*
+	 * (non-Javadoc)
+	 * @see android.view.SurfaceHolder.Callback#surfaceChanged(android.view.SurfaceHolder, int, int, int)
+	 */
 	@Override
 	public void surfaceChanged(SurfaceHolder surfaceholder, int format, int width,
 			int height) {
 		// TODO Auto-generated method stub
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see android.view.SurfaceHolder.Callback#surfaceCreated(android.view.SurfaceHolder)
+	 */
 	@Override
 	public void surfaceCreated(SurfaceHolder holder) {
 		// TODO Auto-generated method stub
@@ -81,6 +113,10 @@ public class GameView extends ArcadeView {
 		mThread.start();
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see android.view.SurfaceHolder.Callback#surfaceDestroyed(android.view.SurfaceHolder)
+	 */
 	@Override
 	public void surfaceDestroyed(SurfaceHolder holder) {
 		// TODO Auto-generated method stub
@@ -94,6 +130,10 @@ public class GameView extends ArcadeView {
        }
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see android.view.View#onKeyDown(int, android.view.KeyEvent)
+	 */
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		// TODO Auto-generated method stub
@@ -119,6 +159,10 @@ public class GameView extends ArcadeView {
 		return super.onKeyDown(keyCode, event);
 	}
 	
+	/*
+	 * (non-Javadoc)
+	 * @see android.view.View#onKeyUp(int, android.view.KeyEvent)
+	 */
 	@Override
 	public boolean onKeyUp(int keyCode, KeyEvent event) {
 		// TODO Auto-generated method stub
@@ -141,6 +185,10 @@ public class GameView extends ArcadeView {
 		return super.onKeyUp(keyCode, event);
 	}
 	
+	/*
+	 * (non-Javadoc)
+	 * @see android.view.View#onTouchEvent(android.view.MotionEvent)
+	 */
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 		// TODO Auto-generated method stub
@@ -178,6 +226,10 @@ public class GameView extends ArcadeView {
 		return super.onTouchEvent(event);
 	}
 	
+	/*
+	 * (non-Javadoc)
+	 * @see java.lang.Runnable#run()
+	 */
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
@@ -217,6 +269,10 @@ public class GameView extends ArcadeView {
         }
 	}
 	
+	/**
+	 * 
+	 * @param canvas
+	 */
 	private void Draw(Canvas canvas) {
 		// TODO Auto-generated method stub
 		super.dispatchDraw(canvas);
@@ -247,6 +303,10 @@ public class GameView extends ArcadeView {
 		drawImage(mBitmapMgr.getBitmap(mBitmapMgr.BITMAP[mBitmapMgr.ACTIONBAR]), Constants.SCREEM_HALF_WIDTH-160, Constants.SCREEM_HEIGHT_DEFAULT-80, canvas);
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public int getCurrentFrame(){
 		switch(mPlayerState) {
 		case DEFAULT:
@@ -268,6 +328,16 @@ public class GameView extends ArcadeView {
 		return mCurrentFrame;
 	}
 	
+	/**
+	 * 
+	 * @param bitmap
+	 * @param column
+	 * @param row
+	 * @param currentframe
+	 * @param x
+	 * @param y
+	 * @param cv
+	 */
 	public void drawFrame(Bitmap bitmap,int column,int row,int currentframe,float x,float y,Canvas cv)
 	{
 		int width, height;
@@ -295,42 +365,91 @@ public class GameView extends ArcadeView {
 		cv.drawBitmap(bitmap, current, current, mPaint);
 	}
 	
+	/**
+	 * 
+	 * @param bitmap
+	 * @param src
+	 * @param dst
+	 * @param cv
+	 */
 	public void drawImage(Bitmap bitmap, Rect src, RectF dst, Canvas cv) {
 		cv.drawBitmap(bitmap, src, dst, mPaint);
 	}
 	
+	/**
+	 * 
+	 * @param bitmap
+	 * @param x
+	 * @param y
+	 * @param cv
+	 */
 	public void drawImage(Bitmap bitmap, float x, float y, Canvas cv) {
 		cv.drawBitmap(bitmap, x, y, mPaint);
 	}
 	
+	/**
+	 * 
+	 * @param str
+	 * @param x
+	 * @param y
+	 * @param cv
+	 */
 	public void drawText(String str, float x, float y, Canvas cv)  {
 		cv.drawText(str, x, y, mPaint);
 	}
 	
+	/**
+	 * 
+	 * @param bm
+	 */
 	public void setBitmapMgr(BitmapMgr bm) {
 		mBitmapMgr = bm;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public float getCurrentX() {
 		return mCurrentX;
 	}
 	
+	/**
+	 * 
+	 * @param x
+	 */
 	public void setCurrentX(float x) {
 		mCurrentX = x;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public float getCurrentY() {
 		return mCurrentY;
 	}
 	
+	/**
+	 * 
+	 * @param y
+	 */
 	public void setCurrentY(float y) {
 		mCurrentY = y;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public ORIENTATION getPlayerState() {
 		return mPlayerState;
 	}
 	
+	/**
+	 * 
+	 * @param orient
+	 */
 	public void setPlayerState(ORIENTATION orient) {
 		mPlayerState = orient;
 	}

@@ -1,7 +1,7 @@
 package  netsurfers.gicp.net.game;
 
 /**
- * Class world will manage the clock of the game.
+ * Class world will manage the clock of the game
  * @author Ziliang Wang
  * E-mail: Lional.King@gmail.com
  */

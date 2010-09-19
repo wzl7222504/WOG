@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Class player.
+ * Class player
  * @author Ziliang Wang
  * E-mail: Lional.King@gmail.com
  */

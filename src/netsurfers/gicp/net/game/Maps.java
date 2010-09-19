@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Class maps will manage the background.
+ * Class maps will manage the background
  * @author Ziliang Wang
  * E-mail: Lional.King@gmail.com
  */

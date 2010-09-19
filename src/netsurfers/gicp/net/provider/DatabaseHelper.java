@@ -8,16 +8,38 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.util.Log;
 
+/**
+ * DatabaseHelper extend from {@link android.database.sqlite.SQLiteOpenHelper} which can manager
+ * the database with SQLite
+ * @author Ziliang Wang
+ * @author E-mail: Lional.King@gmail.com
+ */
 public class DatabaseHelper extends SQLiteOpenHelper {
 	
 	private static final String TAG = "DatabaseHelper";
 
+	/**
+	 * Constructor function of {@link netsurfers.gicp.net.provider.DatabaseHelper}
+	 * @param context
+	 * To use to open or create the database
+	 * @param name
+	 * Of the database file, or null for an in-memory database 
+	 * @param factory
+	 * To use for creating cursor objects, or null for the default 
+	 * @param version
+	 * Number of the database (starting at 1); if the database is older, onUpgrade(android.database.sqlite.SQLiteDatabase, int, int) will be used to upgrade the database 
+	 * @see android.database.sqlite.SQLiteOpenHelper#SQLiteOpenHelper
+	 */
 	public DatabaseHelper(Context context, String name, CursorFactory factory,
 			int version) {
 		super(context, name, factory, version);
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * Called when the database is being started
+	 * @see android.database.sqlite.SQLiteOpenHelper#onCreate(android.database.sqlite.SQLiteDatabase)
+	 */
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		// TODO Auto-generated method stub
@@ -31,6 +53,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + "values(2, 'hello');");
 	}
 
+	/**
+	 * Called when the database upgrade
+	 * @see android.database.sqlite.SQLiteOpenHelper#onUpgrade(android.database.sqlite.SQLiteDatabase, int, int)
+	 */
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 		// TODO Auto-generated method stub

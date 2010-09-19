@@ -1,9 +1,9 @@
 package netsurfers.gicp.net.common;
 
 /**
- * Constants of this application program.
+ * Constants of this application program
  * @author Ziliang Wang
- * E-mail: Lional.King@gmail.com
+ * @author E-mail: Lional.King@gmail.com
  */
 public class Constants {
 	public static float SCREEM_WIDTH_DEFAULT = 320F;
