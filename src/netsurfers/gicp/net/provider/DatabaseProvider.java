@@ -1,6 +1,7 @@
 package netsurfers.gicp.net.provider;
 
 import netsurfers.gicp.net.common.Constants;
+
 import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.database.Cursor;
@@ -15,13 +16,13 @@ import android.net.Uri;
  */
 public class DatabaseProvider extends ContentProvider {
 
-	private static final String AUTHORRITIES = "netsurfers.gicp.net.provider.DatabaseProvider";
+	private static final String AUTHORRITIES = "netsurfers.gicp.net.provider";
 	public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORRITIES);
 	
-    private static final String DATABASE_NAME = "database.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final String DATABASE_NAME = "wog.db";
+    private static final int DATABASE_VERSION = 2;
     
-    private DatabaseHelper mOpenHelper;
+    private DatabaseHelper mOpenHelper = null;
     
     /**
      * A request to delete one or more rows
@@ -60,8 +61,8 @@ public class DatabaseProvider extends ContentProvider {
 	@Override
 	public boolean onCreate() {
 		// TODO Auto-generated method stub
-		mOpenHelper = new DatabaseHelper(this.getContext(), DATABASE_NAME, null, DATABASE_VERSION);
-        return true;
+		mOpenHelper = new DatabaseHelper(getContext(), DATABASE_NAME, null, DATABASE_VERSION);
+        return mOpenHelper != null;
 	}
 
 	/**

@@ -3,13 +3,12 @@ package netsurfers.gicp.net;
 import netsurfers.gicp.net.common.Constants;
 import netsurfers.gicp.net.common.BitmapMgr;
 import netsurfers.gicp.net.game.World;
-import netsurfers.gicp.net.provider.DatabaseProvider;
 import netsurfers.gicp.net.ui.GameView;
 
 import android.app.Activity;
-import android.content.ContentResolver;
 import android.content.res.Configuration;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Window;
@@ -26,9 +25,9 @@ public class GameActivity extends Activity implements Runnable {
 	/**
 	 * Called when the activity is first created
 	 */
-	private World mWorld;
-	private Thread mThread;
-	private GameView mGameView;
+	private World mWorld = null;
+	private Thread mThread = null;
+	private GameView mGameView = null;
 	
 	/**
 	 * Called when the activity is being started
@@ -52,15 +51,18 @@ public class GameActivity extends Activity implements Runnable {
 		mGameView.setFocusable(true);
 		mGameView.setFocusableInTouchMode(true);
 		
-		ContentResolver cr = getContentResolver();
-		Cursor cursor = cr.query(DatabaseProvider.CONTENT_URI, null, null, null, null);
-		cursor.moveToFirst();
-		
 		mWorld = new World();
 		if(null == mThread) {
 	        mThread = new Thread(this);
         }
         mThread.start();
+        
+        Cursor c = getContentResolver().query(Uri.parse("content://netsurfers.gicp.net.provider/item_template"), null, null, null, null);
+        if(c != null) {
+        	if(c.moveToFirst())
+        		c.getCount();
+        }
+        c.close();
 	}
 	
 	/**
@@ -105,9 +107,9 @@ public class GameActivity extends Activity implements Runnable {
 	 * Update the game world
 	 */
 	private void onUpdate(){
-		mWorld.getMaps().getPlayer().setCurrentX(mGameView.getCurrentX());
-		mWorld.getMaps().getPlayer().setCurrentY(mGameView.getCurrentY());
-		mWorld.getMaps().getPlayer().setPlayerState(mGameView.getPlayerState());
+//		mWorld.getMaps().getPlayer().setCurrentX(mGameView.getCurrentX());
+//		mWorld.getMaps().getPlayer().setCurrentY(mGameView.getCurrentY());
+//		mWorld.getMaps().getPlayer().setPlayerState(mGameView.getPlayerState());
 		mWorld.onUpdate();
 	}
 	

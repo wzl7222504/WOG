@@ -3,10 +3,10 @@
       package="netsurfers.gicp.net"
       android:versionCode="1"
       android:versionName="1.0">
-    <application android:icon="@drawable/icon" android:label="@string/app_name">
+      
+    <application android:icon="@drawable/icon" android:label="@string/app_name" android:process="@string/app_name">
 
-		<provider android:authorities="netsurfers.gicp.net.provider.DatabaseProvider" android:name=".provider.DatabaseProvider">
-		</provider>
+		<provider android:name=".provider.DatabaseProvider" android:authorities="netsurfers.gicp.net.provider" android:label="@string/authorities" android:icon="@drawable/icon"/>
 		
 		<activity android:name=".GameActivity" android:configChanges="keyboardHidden|orientation">
 			<intent-filter>
@@ -16,6 +16,10 @@
 		</activity>
 		
 		<activity android:name="MenuActivity">
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
 		</activity>
 </application>
 	
