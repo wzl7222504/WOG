@@ -12,6 +12,7 @@
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
+                <data android:path="netsurfers.gicp.net.GameActivity" android:scheme="content" />
 			</intent-filter>
 		</activity>
 		
@@ -19,6 +20,7 @@
 			<intent-filter>
 				<action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
+                <data android:path="netsurfers.gicp.net.MenuActivity" android:scheme="content" />
 			</intent-filter>
 		</activity>
 </application>

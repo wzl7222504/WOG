@@ -5,12 +5,14 @@ import netsurfers.gicp.net.common.BitmapMgr;
 import netsurfers.gicp.net.common.Constants.ORIENTATION;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
+import android.net.Uri;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -29,7 +31,6 @@ public class GameView extends ArcadeView {
 	private float mCurrentX=0;
 	private float mCurrentY=0;
 	private int mCurrentFrame=0;
-	@SuppressWarnings("unused")
 	private Context mContext;
 	private SurfaceHolder holder;
 	private Paint mPaint;
@@ -121,13 +122,13 @@ public class GameView extends ArcadeView {
 	public void surfaceDestroyed(SurfaceHolder holder) {
 		// TODO Auto-generated method stub
 		mThread.stop();
-		while (true) try {
-            mThread.join();
-            break ;
-       } catch(Exception e) {
-    	   e.printStackTrace();
-    	   Log.e("ERROR GameView-destroyed: ", e.toString());
-       }
+//		while (true) try {
+//            mThread.join();
+//            break ;
+//       } catch(Exception e) {
+//    	   e.printStackTrace();
+//    	   Log.e("ERROR GameView-destroyed: ", e.toString());
+//       }
 	}
 
 	/*
@@ -149,6 +150,9 @@ public class GameView extends ArcadeView {
 				break;
 			case KeyEvent.KEYCODE_DPAD_RIGHT:
 				mPlayerState = Constants.ORIENTATION.RIGHT;
+				break;
+			case KeyEvent.KEYCODE_Q:
+				mContext.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("content://netsurfers.gicp.net.provider.MenuActivity")));
 				break;
 			case KeyEvent.KEYCODE_BACK:
 				System.exit(0);

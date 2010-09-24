@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">上(w),下(S),左(A),右(D)键-移动.B键-背包.C键-角色.L键-任务.M键-地图.P键-技能.Q键-系统.确定(中)键-攻击</string>
-    <string name="app_name">武侠世界</string>
+    <string name="hello">Key up(w),down(S),left(A),right(D)-move.Key B-bag.Key C-character.Key L-task.Key M-map.Key P-spell.Key Q-quit menu.Center key-attacked</string>
+    <string name="app_name">World of Greenwood</string>
     <string name="authorities">netsurfers.gicp.net</string>
+    <string name="btn_startgame">Start Game</string>
+    <string name="btn_startgame2">Load Game</string>
+    <string name="btn_savegame">Save Game</string>
+    <string name="btn_setting">Setting</string>
+    <string name="btn_instruction">Instruction</string>
+    <string name="btn_exitgame">Exit Game</string>
+    <string name="btn_exitgame2">Continue Game</string>
 </resources>

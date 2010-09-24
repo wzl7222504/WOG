@@ -6,6 +6,7 @@ import netsurfers.gicp.net.game.World;
 import netsurfers.gicp.net.ui.GameView;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.database.Cursor;
 import android.net.Uri;
@@ -63,6 +64,8 @@ public class GameActivity extends Activity implements Runnable {
         		c.getCount();
         }
         c.close();
+        
+        startMenuActivity();
 	}
 	
 	/**
@@ -129,5 +132,12 @@ public class GameActivity extends Activity implements Runnable {
     	   e.printStackTrace();
     	   Log.e("ERROR GameActivity-destroyed: ", e.toString());
        }
+	}
+	
+	/**
+	 * Start the menu activity
+	 */
+	protected void startMenuActivity() {
+		startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("content://netsurfers.gicp.net.provider.MenuActivity")));
 	}
 }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">上(w),下(S),左(A),右(D)键-移动.B键-背包.C键-角色.L键-任务.M键-地图.P键-技能.Q键-系统.确定(中)键-攻击</string>
+    <string name="app_name">武侠世界</string>
+    <string name="authorities">netsurfers.gicp.net</string>
+    <string name="btn_startgame">开始游戏</string>
+    <string name="btn_startgame2">读取进度</string>
+    <string name="btn_savegame">保存游戏</string>
+    <string name="btn_setting">游戏设置</string>
+    <string name="btn_instruction">游戏说明</string>
+    <string name="btn_exitgame">退出游戏</string>
+    <string name="btn_exitgame2">继续游戏</string>
+</resources>
