@@ -1,9 +1,9 @@
-package  netsurfers.gicp.net.game;
+package netsurfers.gicp.net.game;
 
 /**
  * Class item is the equipment of the player
- * @author Ziliang Wang
- * E-mail: Lional.King@gmail.com
+ * 
+ * @author Ziliang Wang E-mail: Lional.King@gmail.com
  */
 public class Item {
 	int mID;
@@ -21,87 +21,85 @@ public class Item {
 	int mAttack;
 	int mDefence;
 	int mAttackodds;
-	
+
 	public Item(int entry) {
-		
+
 	}
-	
+
 	public int getItemID() {
 		return mID;
 	}
-	
+
 	public int getType() {
 		return mType;
 	}
-	
+
 	public int getDisplayID(int i) {
 		return mDisplayID[i];
 	}
-	
+
 	public boolean addCount() {
-		if(getCanAddCount()) {
+		if (getCanAddCount()) {
 			++mCurCount;
 			return true;
-		}
-		else
+		} else
 			return false;
 	}
-	
+
 	public boolean getCanAddCount() {
-		if(mCurCount < mMaxCount)
+		if (mCurCount < mMaxCount)
 			return true;
 		else
 			return false;
 	}
-	
+
 	public boolean minusCount() {
-		if(getCanMinusCount()) {
+		if (getCanMinusCount()) {
 			--mCurCount;
 			return true;
-		}
-		else
+		} else
 			return false;
 	}
-	
+
 	public boolean getCanMinusCount() {
-		if(1 < mCurCount)
+		if (1 < mCurCount)
 			return true;
 		else
 			return false;
 	}
-	
+
 	public int getCurCount() {
 		return mCurCount;
 	}
-	
+
 	public int getHealth() {
 		return mHealth;
 	}
-	
+
 	public int getMana() {
 		return mMana;
 	}
-	
+
 	public int getAttack() {
 		return mAttack;
 	}
-	
+
 	public int getDefence() {
 		return mDefence;
 	}
-	
+
 	public int getAttackodds() {
 		return mAttackodds;
 	}
-	
+
 	public String getName() {
 		return mName;
 	}
-	
+
 	public int getBuyPrice() {
 		return mBuyPrice;
 	}
-	
+
 	public int getSellPrice() {
 		return mSellPrice;
 	}

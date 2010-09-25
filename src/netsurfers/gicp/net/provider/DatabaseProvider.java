@@ -9,25 +9,29 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 
 /**
- * DatabaseProvider extend from {@link android.content.ContentProvider} which can query,
- * insert, update, delete the data
+ * DatabaseProvider extend from {@link android.content.ContentProvider} which
+ * can query, insert, update, delete the data
+ * 
  * @author Ziliang Wang
  * @author E-mail: Lional.King@gmail.com
  */
 public class DatabaseProvider extends ContentProvider {
 
 	private static final String AUTHORRITIES = "netsurfers.gicp.net.provider";
-	public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORRITIES);
-	
-    private static final String DATABASE_NAME = "wog.db";
-    private static final int DATABASE_VERSION = 2;
-    
-    private DatabaseHelper mOpenHelper = null;
-    
-    /**
-     * A request to delete one or more rows
-     * @see android.content.ContentProvider#delete(android.net.Uri, java.lang.String, java.lang.String[])
-     */
+	public static final Uri CONTENT_URI = Uri
+			.parse("content://" + AUTHORRITIES);
+
+	private static final String DATABASE_NAME = "wog.db";
+	private static final int DATABASE_VERSION = 2;
+
+	private DatabaseHelper mOpenHelper = null;
+
+	/**
+	 * A request to delete one or more rows
+	 * 
+	 * @see android.content.ContentProvider#delete(android.net.Uri,
+	 *      java.lang.String, java.lang.String[])
+	 */
 	@Override
 	public int delete(Uri arg0, String arg1, String[] arg2) {
 		// TODO Auto-generated method stub
@@ -36,6 +40,7 @@ public class DatabaseProvider extends ContentProvider {
 
 	/**
 	 * Return the MIME type of the data at the given URI
+	 * 
 	 * @see android.content.ContentProvider#getType(android.net.Uri)
 	 */
 	@Override
@@ -46,7 +51,9 @@ public class DatabaseProvider extends ContentProvider {
 
 	/**
 	 * Implement this to insert a new row
-	 * @see android.content.ContentProvider#insert(android.net.Uri, android.content.ContentValues)
+	 * 
+	 * @see android.content.ContentProvider#insert(android.net.Uri,
+	 *      android.content.ContentValues)
 	 */
 	@Override
 	public Uri insert(Uri uri, ContentValues values) {
@@ -56,31 +63,40 @@ public class DatabaseProvider extends ContentProvider {
 
 	/**
 	 * Called when the provider is being started
+	 * 
 	 * @see android.content.ContentProvider#onCreate()
 	 */
 	@Override
 	public boolean onCreate() {
 		// TODO Auto-generated method stub
-		mOpenHelper = new DatabaseHelper(getContext(), DATABASE_NAME, null, DATABASE_VERSION);
-        return mOpenHelper != null;
+		mOpenHelper = new DatabaseHelper(getContext(), DATABASE_NAME, null,
+				DATABASE_VERSION);
+		return mOpenHelper != null;
 	}
 
 	/**
-	 * Receives a query request from a client in a local process, and returns a Cursor
-	 * @see android.content.ContentProvider#query(android.net.Uri, java.lang.String[], java.lang.String, java.lang.String[], java.lang.String)
+	 * Receives a query request from a client in a local process, and returns a
+	 * Cursor
+	 * 
+	 * @see android.content.ContentProvider#query(android.net.Uri,
+	 *      java.lang.String[], java.lang.String, java.lang.String[],
+	 *      java.lang.String)
 	 */
 	@Override
 	public Cursor query(Uri uri, String[] projection, String selection,
 			String[] selectionArgs, String sortOrder) {
 		// TODO Auto-generated method stub
 		SQLiteDatabase db = mOpenHelper.getReadableDatabase();
-		Cursor c = db.query(Constants.DATABASE_TABLE_NAME[0], projection, null, null, null, null, null);
+		Cursor c = db.query(Constants.DATABASE_TABLE_NAME[0], projection, null,
+				null, null, null, null);
 		return c;
 	}
 
 	/**
 	 * Update a content URI
-	 * @see android.content.ContentProvider#update(android.net.Uri, android.content.ContentValues, java.lang.String, java.lang.String[])
+	 * 
+	 * @see android.content.ContentProvider#update(android.net.Uri,
+	 *      android.content.ContentValues, java.lang.String, java.lang.String[])
 	 */
 	@Override
 	public int update(Uri uri, ContentValues values, String selection,

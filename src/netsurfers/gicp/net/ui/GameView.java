@@ -1,18 +1,17 @@
 package netsurfers.gicp.net.ui;
 
+import netsurfers.gicp.net.GameActivity;
 import netsurfers.gicp.net.common.Constants;
 import netsurfers.gicp.net.common.BitmapMgr;
 import netsurfers.gicp.net.common.Constants.ORIENTATION;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
-import android.net.Uri;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -31,7 +30,9 @@ public class GameView extends ArcadeView {
 	private float mCurrentX=0;
 	private float mCurrentY=0;
 	private int mCurrentFrame=0;
+	@SuppressWarnings("unused")
 	private Context mContext;
+	private GameActivity mGameActivity;
 	private SurfaceHolder holder;
 	private Paint mPaint;
 	private Thread mThread;
@@ -152,10 +153,10 @@ public class GameView extends ArcadeView {
 				mPlayerState = Constants.ORIENTATION.RIGHT;
 				break;
 			case KeyEvent.KEYCODE_Q:
-				mContext.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("content://netsurfers.gicp.net.provider.MenuActivity")));
+				mGameActivity.startMenuActivity();
 				break;
 			case KeyEvent.KEYCODE_BACK:
-				System.exit(0);
+				mGameActivity.onQuitGame();
 				break;
 			default:
 				break;
@@ -300,11 +301,18 @@ public class GameView extends ArcadeView {
 		
 		// TODO Draw the boards and bars
 		mPaint.setColor(Color.YELLOW);
+		drawImage(mBitmapMgr.getBitmap(mBitmapMgr.BITMAP[mBitmapMgr.HEALTHBAR]), 50, 100, 0, canvas);
+		drawImage(mBitmapMgr.getBitmap(mBitmapMgr.BITMAP[mBitmapMgr.MANABAR]), 50, 100, -10, canvas);
 		drawFrame(mBitmapMgr.getBitmap(mBitmapMgr.BITMAP[mBitmapMgr.STATEBARS]), 1, 2, 1, 0F, 0F, canvas);
-		drawImage(mBitmapMgr.getBitmap(mBitmapMgr.BITMAP[mBitmapMgr.HEALTHBAR]), 85, 100, 10, canvas);
-		drawImage(mBitmapMgr.getBitmap(mBitmapMgr.BITMAP[mBitmapMgr.MANABAR]), 50, 100, 0, canvas);
-		drawImage(mBitmapMgr.getBitmap(mBitmapMgr.BITMAP[mBitmapMgr.MENUBAR]), Constants.SCREEM_WIDTH_DEFAULT-40, Constants.SCREEM_HALF_HEIGHT-120, canvas);
-		drawImage(mBitmapMgr.getBitmap(mBitmapMgr.BITMAP[mBitmapMgr.ACTIONBAR]), Constants.SCREEM_HALF_WIDTH-160, Constants.SCREEM_HEIGHT_DEFAULT-80, canvas);
+		int h=0,w=0;
+		h = mBitmapMgr.getBitmap(mBitmapMgr.BITMAP[mBitmapMgr.MENUBAR]).getHeight();
+		w = mBitmapMgr.getBitmap(mBitmapMgr.BITMAP[mBitmapMgr.MENUBAR]).getWidth();
+		drawImage(mBitmapMgr.getBitmap(mBitmapMgr.BITMAP[mBitmapMgr.MENUBAR]),
+				Constants.SCREEM_WIDTH_DEFAULT-w, Constants.SCREEM_HALF_HEIGHT-h/2, canvas);
+		h = mBitmapMgr.getBitmap(mBitmapMgr.BITMAP[mBitmapMgr.ACTIONBAR]).getHeight();
+		w = mBitmapMgr.getBitmap(mBitmapMgr.BITMAP[mBitmapMgr.ACTIONBAR]).getWidth();
+		drawImage(mBitmapMgr.getBitmap(mBitmapMgr.BITMAP[mBitmapMgr.ACTIONBAR]),
+				Constants.SCREEM_HALF_WIDTH-w/2, Constants.SCREEM_HEIGHT_DEFAULT-h, canvas);
 	}
 	
 	/**
@@ -342,7 +350,7 @@ public class GameView extends ArcadeView {
 	 * @param y
 	 * @param cv
 	 */
-	public void drawFrame(Bitmap bitmap,int column,int row,int currentframe,float x,float y,Canvas cv)
+	public void drawFrame(Bitmap bitmap,int column,int row,int currentframe,float x,float y, Canvas cv)
 	{
 		int width, height;
 		width = bitmap.getWidth();
@@ -364,8 +372,10 @@ public class GameView extends ArcadeView {
 	 * @param cv
 	 */
 	public void drawImage(Bitmap bitmap, int cur, int max, int dis, Canvas cv) {
-		Rect current = new Rect();
-		current.set(0, 0, 40+(108+dis)*cur/max, 40);
+		int width, height;
+		width = bitmap.getWidth();
+		height = bitmap.getHeight();
+		Rect current = new Rect(width/4, 0, width/4+dis+3*width/4*cur/max, height);
 		cv.drawBitmap(bitmap, current, current, mPaint);
 	}
 	
@@ -456,5 +466,13 @@ public class GameView extends ArcadeView {
 	 */
 	public void setPlayerState(ORIENTATION orient) {
 		mPlayerState = orient;
+	}
+	
+	/**
+	 * 
+	 * @param orient
+	 */
+	public void setGameActivity(GameActivity ga) {
+		mGameActivity = ga;
 	}
 }
