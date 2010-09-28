@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<TableLayout android:id="@+id/tl_create_character" 
+	android:layout_width="fill_parent" 
+	android:layout_height="fill_parent" 
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	
+	<TableRow android:id="@+id/tr_character_name" 
+		android:layout_height="wrap_content" 
+		android:layout_width="fill_parent">
+	
+		<TextView android:text="@string/tv_character_name" 
+			android:id="@+id/tv_character_name" 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content">
+		</TextView>
+		
+		<EditText android:text="@string/et_character_name" 
+			android:id="@+id/et_character_name" 
+			android:layout_height="wrap_content" 
+			android:layout_width="fill_parent">
+		</EditText>
+	</TableRow>
+
+	<LinearLayout android:id="@+id/ll_character_sex" 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content">
+		
+		<TextView android:text="@string/tv_character_sex" 
+			android:id="@+id/tv_character_sex" 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content" android:layout_gravity="center_vertical">
+		</TextView>
+		
+		<RadioGroup android:id="@+id/RadioGroup01" 
+			android:layout_width="fill_parent" 
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+			
+			<RadioButton android:text="@string/rb_character_male" 
+				android:id="@+id/rb_character_male" 
+				android:layout_width="wrap_content" 
+				android:layout_height="wrap_content">
+			</RadioButton>
+			
+			<RadioButton android:text="@string/rb_character_female" 
+				android:id="@+id/rb_character_female" 
+				android:layout_width="wrap_content" 
+				android:layout_height="wrap_content">
+			</RadioButton>
+		</RadioGroup>
+	</LinearLayout>
+
+	<TableRow android:id="@+id/tr_character_class" 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content">
+		
+		<TextView android:text="@string/tv_character_class" 
+			android:id="@+id/tv_character_class" 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content">
+		</TextView>
+		
+		<Spinner android:id="@+id/spn_character_class" 
+			android:layout_width="fill_parent" 
+			android:layout_height="wrap_content"
+			android:entries="@array/spn_character_class">
+		</Spinner>
+	</TableRow>
+
+	<TableRow android:id="@+id/tr_character_disposition" 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content">
+		
+		<TextView android:text="@string/tv_character_disposition" 
+			android:id="@+id/tv_character_disposition" 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content">
+		</TextView>
+		
+		<Spinner android:id="@+id/spn_character_disposition" 
+			android:layout_width="fill_parent" 
+			android:layout_height="wrap_content"
+			android:entries="@array/spn_character_disposition">
+		</Spinner>
+	</TableRow>
+
+	<LinearLayout android:id="@+id/ll_craete_character" 
+		android:layout_height="wrap_content" 
+		android:layout_width="fill_parent">
+		
+		<Button android:text="@string/btn_done" 
+			android:id="@+id/btn_done" 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content">
+		</Button>
+		
+		<Button android:text="@string/btn_reset" 
+			android:id="@+id/btn_reset" 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content">
+		</Button>
+		
+		<Button android:text="@string/btn_revert" 
+			android:id="@+id/btn_revert" 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content">
+		</Button>
+	</LinearLayout>
+</TableLayout>

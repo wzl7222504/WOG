@@ -3,11 +3,37 @@
     <string name="hello">Key up(w),down(S),left(A),right(D)-move.Key B-bag.Key C-character.Key L-task.Key M-map.Key P-spell.Key Q-quit menu.Center key-attacked</string>
     <string name="app_name">World of Greenwood</string>
     <string name="authorities">netsurfers.gicp.net</string>
-    <string name="btn_startgame">Start Game</string>
-    <string name="btn_startgame2">Load Game</string>
-    <string name="btn_savegame">Save Game</string>
+    <string name="btn_new_game">New Game</string>
+    <string name="btn_new_game2">Save Game</string>
+    <string name="btn_load_game">Load Game</string>
     <string name="btn_setting">Setting</string>
     <string name="btn_instruction">Instruction</string>
-    <string name="btn_exitgame">Exit Game</string>
-    <string name="btn_exitgame2">Continue Game</string>
+    <string name="btn_exit_game">Exit Game</string>
+    <string name="btn_exit_game2">Continue Game</string>
+    <string name="tv_character_name">name</string>
+    <string name="et_character_name">input your character name</string>
+    <string name="tv_character_sex">sex</string>
+    <string name="rb_character_male">male</string>
+    <string name="rb_character_female">female</string>
+    <string name="tv_character_class">gang</string>
+    <string name="tv_character_disposition">disposition</string>
+    <string name="btn_done">done</string>
+    <string name="btn_reset">reset</string>
+    <string name="btn_revert">revert</string>
+	<string-array name="spn_character_class">
+		<item>Hua Shan</item>
+		<item>Shao Lin</item>
+		<item>E\' Mei</item>
+		<item>Gai Bang</item>
+		<item>Wu Dang</item>
+		<item>Random</item>
+	</string-array>
+	<string-array name="spn_character_disposition">
+		<item>ruggedly</item>
+		<item>tough</item>
+		<item>cunning</item>
+		<item>indomitable</item>
+		<item>intelligent</item>
+		<item>random</item>
+	</string-array>
 </resources>

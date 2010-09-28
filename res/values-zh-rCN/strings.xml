@@ -3,11 +3,37 @@
     <string name="hello">上(w),下(S),左(A),右(D)键-移动.B键-背包.C键-角色.L键-任务.M键-地图.P键-技能.Q键-系统.确定(中)键-攻击</string>
     <string name="app_name">武侠世界</string>
     <string name="authorities">netsurfers.gicp.net</string>
-    <string name="btn_startgame">开始游戏</string>
-    <string name="btn_startgame2">读取进度</string>
-    <string name="btn_savegame">保存游戏</string>
+    <string name="btn_new_game">新建游戏</string>
+    <string name="btn_new_game2">保存游戏</string>
+    <string name="btn_load_game">读取进度</string>
     <string name="btn_setting">游戏设置</string>
     <string name="btn_instruction">游戏说明</string>
-    <string name="btn_exitgame">退出游戏</string>
-    <string name="btn_exitgame2">继续游戏</string>
+    <string name="btn_exit_game">退出游戏</string>
+    <string name="btn_exit_game2">继续游戏</string>
+    <string name="tv_character_name">姓名</string>
+    <string name="et_character_name">输入角色名</string>
+    <string name="tv_character_sex">性别</string>
+    <string name="rb_character_male">男</string>
+    <string name="rb_character_female">女</string>
+    <string name="tv_character_class">帮派</string>
+    <string name="tv_character_disposition">性格</string>
+    <string name="btn_done">确定</string>
+    <string name="btn_reset">重置</string>
+    <string name="btn_revert">取消</string>
+    <string-array name="spn_character_class">
+		<item>华山</item>
+		<item>少林</item>
+		<item>峨眉</item>
+		<item>丐帮</item>
+		<item>武当</item>
+		<item>随机</item>
+	</string-array>
+	<string-array name="spn_character_disposition">
+		<item>粗狂</item>
+		<item>坚韧</item>
+		<item>狡猾</item>
+		<item>顽强</item>
+		<item>聪慧</item>
+		<item>随机</item>
+	</string-array>
 </resources>

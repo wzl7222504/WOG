@@ -26,7 +26,25 @@ public class MenuActivity extends Activity {
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
-			finish();
+			setContentView(R.layout.create_character);
+			Button btnDone=(Button)findViewById(R.id.btn_done);
+			Button btnRevert=(Button)findViewById(R.id.btn_revert);
+			btnDone.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					finish();
+				}
+			});
+			btnRevert.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					finish();
+				}
+			});
 		}
 	};
 	private OnClickListener mLsnExitGame = new OnClickListener() {
@@ -47,9 +65,9 @@ public class MenuActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.mainmenulayout);
-		mBtnStartGame = (Button) this.findViewById(R.id.btn_startgame);
-		mBtnExitGame = (Button) this.findViewById(R.id.btn_exitgame);
+		setContentView(R.layout.main_menu);
+		mBtnStartGame = (Button) this.findViewById(R.id.btn_new_game);
+		mBtnExitGame = (Button) this.findViewById(R.id.btn_exit_game);
 		mBtnStartGame.setOnClickListener(mLsnStartGame);
 		mBtnExitGame.setOnClickListener(mLsnExitGame);
 	}
