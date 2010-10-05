@@ -72,8 +72,9 @@ public class GameActivity extends Activity implements Runnable {
 		Cursor c = getContentResolver().query(Uri.parse("content://netsurfers.gicp.net.provider/item_template"),
 						null, null, null, null);
 		if (c != null) {
+			Log.i("WOG database","column count : "+c.getColumnCount());
 			if (c.moveToFirst())
-				c.getCount();
+				Log.i("WOG database","record count : "+c.getCount());
 		}
 		c.close();
 	}
@@ -212,18 +213,30 @@ public class GameActivity extends Activity implements Runnable {
 		System.exit(0);
 	}
 	
+	/**
+	 * (non-Javadoc)
+	 * @see android.app.Activity#onKeyDown(int, android.view.KeyEvent)
+	 */
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 	
+	/**
+	 * (non-Javadoc)
+	 * @see android.app.Activity#onKeyLongPress(int, android.view.KeyEvent)
+	 */
 	@Override
 	public boolean onKeyLongPress(int keyCode, KeyEvent event) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 	
+	/**
+	 * (non-Javadoc)
+	 * @see android.app.Activity#onKeyUp(int, android.view.KeyEvent)
+	 */
 	@Override
 	public boolean onKeyUp(int keyCode, KeyEvent event) {
 		// TODO Auto-generated method stub

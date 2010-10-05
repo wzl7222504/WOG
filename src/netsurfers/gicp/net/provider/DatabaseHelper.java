@@ -47,10 +47,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	 */
 	private void onCreateTables(SQLiteDatabase db) {
 		try {
-			db
-					.execSQL(String
-							.format(
-									"CREATE TABLE IF NOT EXISTS %s(%s INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, %s VARCHAR NOT NULL DEFAULT '', "
+			db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s(%s INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, %s VARCHAR NOT NULL DEFAULT '', "
 											+ "%s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', "
 											+ "%s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', "
 											+ "%s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', "
@@ -75,10 +72,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 									Constants.DATABASE_TABLE00_COLUMN_NAME[16],
 									Constants.DATABASE_TABLE00_COLUMN_NAME[17]));
 
-			db
-					.execSQL(String
-							.format(
-									"CREATE TABLE IF NOT EXISTS %s(%s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, "
+			db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s(%s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, "
 											+ "%s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', "
 											+ "%s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', "
 											+ "%s INTEGER NOT NULL DEFAULT '0');",
@@ -95,10 +89,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 									Constants.DATABASE_TABLE01_COLUMN_NAME[9],
 									Constants.DATABASE_TABLE01_COLUMN_NAME[10]));
 
-			db
-					.execSQL(String
-							.format(
-									"CREATE TABLE IF NOT EXISTS %s(%s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', "
+			db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s(%s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', "
 											+ "%s INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0');",
 									Constants.DATABASE_TABLE_NAME[2],
 									Constants.DATABASE_TABLE02_COLUMN_NAME[0],
@@ -107,10 +98,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 									Constants.DATABASE_TABLE02_COLUMN_NAME[3],
 									Constants.DATABASE_TABLE02_COLUMN_NAME[4]));
 
-			db
-					.execSQL(String
-							.format(
-									"CREATE TABLE IF NOT EXISTS %s(%s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', "
+			db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s(%s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', "
 											+ "PRIMARY KEY (`%s`,`%s`));",
 									Constants.DATABASE_TABLE_NAME[3],
 									Constants.DATABASE_TABLE03_COLUMN_NAME[0],
@@ -119,10 +107,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 									Constants.DATABASE_TABLE03_COLUMN_NAME[0],
 									Constants.DATABASE_TABLE03_COLUMN_NAME[1]));
 
-			db
-					.execSQL(String
-							.format(
-									"CREATE TABLE IF NOT EXISTS %s(%s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', "
+			db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s(%s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', "
 											+ "PRIMARY KEY (`%s`,`%s`));",
 									Constants.DATABASE_TABLE_NAME[4],
 									Constants.DATABASE_TABLE04_COLUMN_NAME[0],
@@ -131,10 +116,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 									Constants.DATABASE_TABLE04_COLUMN_NAME[0],
 									Constants.DATABASE_TABLE04_COLUMN_NAME[1]));
 
-			db
-					.execSQL(String
-							.format(
-									"CREATE TABLE IF NOT EXISTS %s(%s INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', "
+			db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s(%s INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', "
 											+ "%s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', "
 											+ "%s INTEGER NOT NULL DEFAULT '0');",
 									Constants.DATABASE_TABLE_NAME[5],
@@ -147,10 +129,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 									Constants.DATABASE_TABLE05_COLUMN_NAME[6],
 									Constants.DATABASE_TABLE05_COLUMN_NAME[7]));
 
-			db
-					.execSQL(String
-							.format(
-									"CREATE TABLE IF NOT EXISTS %s(%s INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, %s INTEGER NOT NULL DEFAULT '0', "
+			db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s(%s INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, %s INTEGER NOT NULL DEFAULT '0', "
 											+ "%s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', %s TEXT NOT NULL DEFAULT '');",
 									Constants.DATABASE_TABLE_NAME[6],
 									Constants.DATABASE_TABLE06_COLUMN_NAME[0],
@@ -159,10 +138,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 									Constants.DATABASE_TABLE06_COLUMN_NAME[3],
 									Constants.DATABASE_TABLE06_COLUMN_NAME[4]));
 
-			db
-					.execSQL(String
-							.format(
-									"CREATE TABLE IF NOT EXISTS %s(%s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', "
+			db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s(%s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', "
 											+ "PRIMARY KEY (`%s`,`%s`));",
 									Constants.DATABASE_TABLE_NAME[7],
 									Constants.DATABASE_TABLE07_COLUMN_NAME[0],
@@ -171,10 +147,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 									Constants.DATABASE_TABLE07_COLUMN_NAME[0],
 									Constants.DATABASE_TABLE07_COLUMN_NAME[1]));
 
-			db
-					.execSQL(String
-							.format(
-									"CREATE TABLE IF NOT EXISTS %s(%s INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, %s INTEGER NOT NULL DEFAULT '0', %s VARCHAR NOT NULL DEFAULT '', "
+			db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s(%s INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, %s INTEGER NOT NULL DEFAULT '0', %s VARCHAR NOT NULL DEFAULT '', "
 											+ "%s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', "
 											+ "%s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', "
 											+ "%s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', "
@@ -197,10 +170,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 									Constants.DATABASE_TABLE08_COLUMN_NAME[14],
 									Constants.DATABASE_TABLE08_COLUMN_NAME[15]));
 
-			db
-					.execSQL(String
-							.format(
-									"CREATE TABLE IF NOT EXISTS %s(%s INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', "
+			db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s(%s INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', "
 											+ "%s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0');",
 									Constants.DATABASE_TABLE_NAME[9],
 									Constants.DATABASE_TABLE09_COLUMN_NAME[0],
@@ -211,20 +181,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 									Constants.DATABASE_TABLE09_COLUMN_NAME[5],
 									Constants.DATABASE_TABLE09_COLUMN_NAME[6]));
 
-			db
-					.execSQL(String
-							.format(
-									"CREATE TABLE IF NOT EXISTS %s(%s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', PRIMARY KEY (`%s`,`%s`));",
+			db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s(%s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', PRIMARY KEY (`%s`,`%s`));",
 									Constants.DATABASE_TABLE_NAME[10],
 									Constants.DATABASE_TABLE10_COLUMN_NAME[0],
 									Constants.DATABASE_TABLE10_COLUMN_NAME[1],
 									Constants.DATABASE_TABLE10_COLUMN_NAME[0],
 									Constants.DATABASE_TABLE10_COLUMN_NAME[1]));
 
-			db
-					.execSQL(String
-							.format(
-									"CREATE TABLE IF NOT EXISTS %s(%s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', "
+			db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s(%s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', "
 											+ "PRIMARY KEY (`%s`,`%s`));",
 									Constants.DATABASE_TABLE_NAME[11],
 									Constants.DATABASE_TABLE11_COLUMN_NAME[0],
@@ -233,10 +197,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 									Constants.DATABASE_TABLE11_COLUMN_NAME[0],
 									Constants.DATABASE_TABLE11_COLUMN_NAME[1]));
 
-			db
-					.execSQL(String
-							.format(
-									"CREATE TABLE IF NOT EXISTS %s(%s INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', "
+			db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s(%s INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', "
 											+ "%s VARCHAR NOT NULL DEFAULT '', %s INTEGER NOT NULL DEFAULT '0');",
 									Constants.DATABASE_TABLE_NAME[12],
 									Constants.DATABASE_TABLE12_COLUMN_NAME[0],
@@ -245,10 +206,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 									Constants.DATABASE_TABLE12_COLUMN_NAME[3],
 									Constants.DATABASE_TABLE12_COLUMN_NAME[4]));
 
-			db
-					.execSQL(String
-							.format(
-									"CREATE TABLE IF NOT EXISTS %s(%s INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', "
+			db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s(%s INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', "
 											+ "%s VARCHAR NOT NULL DEFAULT '', %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', "
 											+ "%s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', "
 											+ "%s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0');",
@@ -268,30 +226,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 									Constants.DATABASE_TABLE13_COLUMN_NAME[12],
 									Constants.DATABASE_TABLE13_COLUMN_NAME[13]));
 
-			db
-					.execSQL(String
-							.format(
-									"CREATE TABLE IF NOT EXISTS %s(%s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', PRIMARY KEY (`%s`,`%s`));",
+			db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s(%s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', PRIMARY KEY (`%s`,`%s`));",
 									Constants.DATABASE_TABLE_NAME[14],
 									Constants.DATABASE_TABLE14_COLUMN_NAME[0],
 									Constants.DATABASE_TABLE14_COLUMN_NAME[1],
 									Constants.DATABASE_TABLE14_COLUMN_NAME[0],
 									Constants.DATABASE_TABLE14_COLUMN_NAME[1]));
 
-			db
-					.execSQL(String
-							.format(
-									"CREATE TABLE IF NOT EXISTS %s(%s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', PRIMARY KEY (`%s`,`%s`));",
+			db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s(%s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', PRIMARY KEY (`%s`,`%s`));",
 									Constants.DATABASE_TABLE_NAME[15],
 									Constants.DATABASE_TABLE15_COLUMN_NAME[0],
 									Constants.DATABASE_TABLE15_COLUMN_NAME[1],
 									Constants.DATABASE_TABLE15_COLUMN_NAME[0],
 									Constants.DATABASE_TABLE15_COLUMN_NAME[1]));
 
-			db
-					.execSQL(String
-							.format(
-									"CREATE TABLE IF NOT EXISTS %s(%s INTEGER NOT NULL PRIMARY KEY, %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', "
+			db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s(%s INTEGER NOT NULL PRIMARY KEY, %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', "
 											+ "%s INTEGER NOT NULL DEFAULT '0');",
 									Constants.DATABASE_TABLE_NAME[16],
 									Constants.DATABASE_TABLE16_COLUMN_NAME[0],
@@ -299,29 +248,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 									Constants.DATABASE_TABLE16_COLUMN_NAME[2],
 									Constants.DATABASE_TABLE16_COLUMN_NAME[3]));
 
-			db
-					.execSQL(String
-							.format(
-									"CREATE TABLE IF NOT EXISTS %s(%s INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0');",
+			db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s(%s INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0');",
 									Constants.DATABASE_TABLE_NAME[17],
 									Constants.DATABASE_TABLE17_COLUMN_NAME[0],
 									Constants.DATABASE_TABLE17_COLUMN_NAME[1],
 									Constants.DATABASE_TABLE17_COLUMN_NAME[2]));
 
-			db
-					.execSQL(String
-							.format(
-									"CREATE TABLE IF NOT EXISTS %s(%s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', PRIMARY KEY (`%s`,`%s`));",
+			db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s(%s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', PRIMARY KEY (`%s`,`%s`));",
 									Constants.DATABASE_TABLE_NAME[18],
 									Constants.DATABASE_TABLE18_COLUMN_NAME[0],
 									Constants.DATABASE_TABLE18_COLUMN_NAME[1],
 									Constants.DATABASE_TABLE18_COLUMN_NAME[0],
 									Constants.DATABASE_TABLE18_COLUMN_NAME[1]));
 
-			db
-					.execSQL(String
-							.format(
-									"CREATE TABLE IF NOT EXISTS %s(%s INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', "
+			db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s(%s INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', "
 											+ "%s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', %s VARCHAR NOT NULL DEFAULT '', %s TEXT NOT NULL DEFAULT '', "
 											+ "%s TEXT NOT NULL DEFAULT '', %s TEXT NOT NULL DEFAULT '', %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', "
 											+ "%s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', "
@@ -361,10 +301,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 									Constants.DATABASE_TABLE19_COLUMN_NAME[28],
 									Constants.DATABASE_TABLE19_COLUMN_NAME[29]));
 
-			db
-					.execSQL(String
-							.format(
-									"CREATE TABLE IF NOT EXISTS %s(%s INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, %s INTEGER NOT NULL DEFAULT '0', %s VARCHAR NOT NULL DEFAULT '', "
+			db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s(%s INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, %s INTEGER NOT NULL DEFAULT '0', %s VARCHAR NOT NULL DEFAULT '', "
 											+ "%s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', "
 											+ "%s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', %s INTEGER NOT NULL DEFAULT '0', "
 											+ "%s INTEGER NOT NULL DEFAULT '0');",
@@ -393,8 +330,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	private void onDropTables(SQLiteDatabase db) {
 		try {
 			for (int i = 0; i < Constants.DATABASE_TABLE_NAME.length; ++i)
-				db.execSQL("DROP TABLE IF EXISTS "
-						+ Constants.DATABASE_TABLE_NAME[i] + ";");
+				db.execSQL("DROP TABLE IF EXISTS " + Constants.DATABASE_TABLE_NAME[i] + ";");
 		} catch (SQLException e) {
 			Log.e("ERROR Database-DropTables: ", e.toString());
 		}

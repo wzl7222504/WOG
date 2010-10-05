@@ -121,24 +121,39 @@ public class MenuActivity extends Activity {
 		initialize();
 	}
 	
+	/**
+	 * (non-Javadoc)
+	 * @see android.app.Activity#onKeyDown(int, android.view.KeyEvent)
+	 */
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 	
+	/**
+	 * (non-Javadoc)
+	 * @see android.app.Activity#onKeyLongPress(int, android.view.KeyEvent)
+	 */
 	@Override
 	public boolean onKeyLongPress(int keyCode, KeyEvent event) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 	
+	/**
+	 * (non-Javadoc)
+	 * @see android.app.Activity#onKeyUp(int, android.view.KeyEvent)
+	 */
 	@Override
 	public boolean onKeyUp(int keyCode, KeyEvent event) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 	
+	/**
+	 * Initialize this activity when created or restart
+	 */
 	protected void initialize() {
 		mBtnNewGame = (Button) this.findViewById(R.id.btn_new_game);
 		mBtnLoadGame = (Button) this.findViewById(R.id.btn_load_game);

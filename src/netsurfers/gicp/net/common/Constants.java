@@ -23,6 +23,29 @@ public class Constants {
 			"gameobject_template", "item_template", "npc_trainer",
 			"npc_vendor", "playercreateinfo", "playercreateinfo_item",
 			"playercreateinfo_spell", "quest_template", "spell_chain", };
+	
+	public static final String DATABASE_CONTENT_TYPE[] = { 
+		"vnd.android.cursor.dir/vnd.netsurfers.character",
+		"vnd.android.cursor.dir/vnd.netsurfers.character_equipmentsets", 
+		"vnd.android.cursor.dir/vnd.netsurfers.character_inventory",
+		"vnd.android.cursor.dir/vnd.netsurfers.character_quest", 
+		"vnd.android.cursor.dir/vnd.netsurfers.character_spell", 
+		"vnd.android.cursor.dir/vnd.netsurfers.creature", 
+		"vnd.android.cursor.dir/vnd.netsurfers.creature_ai",
+		"vnd.android.cursor.dir/vnd.netsurfers.creature_loot_template", 
+		"vnd.android.cursor.dir/vnd.netsurfers.creature_template", 
+		"vnd.android.cursor.dir/vnd.netsurfers.gameobject",
+		"vnd.android.cursor.dir/vnd.netsurfers.gameobject_questrelation", 
+		"vnd.android.cursor.dir/vnd.netsurfers.gameobject_loot_template",
+		"vnd.android.cursor.dir/vnd.netsurfers.gameobject_template", 
+		"vnd.android.cursor.dir/vnd.netsurfers.item_template", 
+		"vnd.android.cursor.dir/vnd.netsurfers.npc_trainer",
+		"vnd.android.cursor.dir/vnd.netsurfers.npc_vendor", 
+		"vnd.android.cursor.dir/vnd.netsurfers.playercreateinfo", 
+		"vnd.android.cursor.dir/vnd.netsurfers.playercreateinfo_item",
+		"vnd.android.cursor.dir/vnd.netsurfers.playercreateinfo_spell", 
+		"vnd.android.cursor.dir/vnd.netsurfers.quest_template", 
+		"vnd.android.cursor.dir/vnd.netsurfers.spell_chain", };
 
 	public static final String DATABASE_TABLE00_COLUMN_NAME[] = { "guid",
 			"name", "class", "level", "xp", "money", "potential", "health",
