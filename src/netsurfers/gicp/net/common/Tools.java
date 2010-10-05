@@ -72,7 +72,7 @@ public class Tools {
 	public static void AlertDialog(final Context ctx, final CharSequence title,
 			final CharSequence message) {
 		new AlertDialog.Builder(ctx).setIcon(R.drawable.icon).setTitle(title)
-				.setMessage(message).setPositiveButton("Dismiss",
+				.setMessage(message).setPositiveButton("Done",
 						new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog,
 									int whichButton) {

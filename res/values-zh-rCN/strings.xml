@@ -8,8 +8,8 @@
     <string name="btn_load_game">读取进度</string>
     <string name="btn_setting">游戏设置</string>
     <string name="btn_instruction">游戏说明</string>
-    <string name="btn_exit_game">退出游戏</string>
-    <string name="btn_exit_game2">继续游戏</string>
+    <string name="btn_exit_game">退出程序</string>
+    <string name="btn_exit_game2">退出游戏</string>
     <string name="tv_character_name">姓名</string>
     <string name="et_character_name">输入角色名</string>
     <string name="tv_character_sex">性别</string>

@@ -104,4 +104,8 @@ public class Constants {
 	public static enum ORIENTATION {
 		DEFAULT, UP, DOWN, LEFT, RIGHT
 	};
+	
+	public static final int RESULT_OK=-1;
+	public static final int RESULT_CANCELED=0;
+	public static final int RESULT_STOP=1;
 }

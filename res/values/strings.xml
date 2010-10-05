@@ -9,7 +9,7 @@
     <string name="btn_setting">Setting</string>
     <string name="btn_instruction">Instruction</string>
     <string name="btn_exit_game">Exit Game</string>
-    <string name="btn_exit_game2">Continue Game</string>
+    <string name="btn_exit_game2">Quit Game</string>
     <string name="tv_character_name">name</string>
     <string name="et_character_name">input your character name</string>
     <string name="tv_character_sex">sex</string>

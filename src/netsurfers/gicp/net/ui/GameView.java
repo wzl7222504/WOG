@@ -156,12 +156,12 @@ public class GameView extends ArcadeView {
 				mGameActivity.startMenuActivity();
 				break;
 			case KeyEvent.KEYCODE_BACK:
-				mGameActivity.onQuitGame();
+				mGameActivity.stopGame();
 				break;
 			default:
 				break;
 		}
-		return super.onKeyDown(keyCode, event);
+		return true;
 	}
 	
 	/*
@@ -187,7 +187,7 @@ public class GameView extends ArcadeView {
 			default:
 				break;
 	}
-		return super.onKeyUp(keyCode, event);
+		return true;
 	}
 	
 	/*
@@ -228,7 +228,7 @@ public class GameView extends ArcadeView {
 			mPlayerState = Constants.ORIENTATION.DEFAULT;
 			break;
 		}
-		return super.onTouchEvent(event);
+		return true;
 	}
 	
 	/*

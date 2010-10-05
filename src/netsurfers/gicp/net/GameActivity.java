@@ -13,6 +13,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -68,10 +69,7 @@ public class GameActivity extends Activity implements Runnable {
 		}
 		mThread.start();
 
-		Cursor c = getContentResolver()
-				.query(
-						Uri
-								.parse("content://netsurfers.gicp.net.provider/item_template"),
+		Cursor c = getContentResolver().query(Uri.parse("content://netsurfers.gicp.net.provider/item_template"),
 						null, null, null, null);
 		if (c != null) {
 			if (c.moveToFirst())
@@ -149,7 +147,6 @@ public class GameActivity extends Activity implements Runnable {
 		mAudioClip.loop();
 
 		if (!mGameRuning) {
-			mGameRuning = true;
 			startMenuActivity();
 		}
 	}
@@ -175,11 +172,31 @@ public class GameActivity extends Activity implements Runnable {
 	}
 
 	/**
+	 * Get the result from menu activity
+	 * @see android.app.Activity#onActivityResult(int, int, android.content.Intent)
+	 */
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		// TODO Auto-generated method stub
+		if(resultCode == Constants.RESULT_STOP)
+			stopGame();
+		if(resultCode == Constants.RESULT_OK) {
+			
+		}else if(resultCode == Constants.RESULT_CANCELED){
+			
+		}
+	}
+	
+	/**
 	 * Start the menu activity
 	 */
 	public void startMenuActivity() {
-		startActivity(new Intent(Intent.ACTION_VIEW, Uri
-				.parse("content://netsurfers.gicp.net.provider.MenuActivity")));
+		Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("content://netsurfers.gicp.net.provider.MenuActivity"));
+		Bundle bundle = new Bundle();
+		bundle.putBoolean("GameRuningKey", mGameRuning);
+		mGameRuning = true;
+		intent.putExtras(bundle);
+		startActivityForResult(intent, 0);
 		if (mAudioClip != null) {
 			mAudioClip.stop();
 			mAudioClip.release();
@@ -191,7 +208,25 @@ public class GameActivity extends Activity implements Runnable {
 	/**
 	 * Quit this game
 	 */
-	public void onQuitGame() {
+	public void stopGame() {
 		System.exit(0);
+	}
+	
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+	@Override
+	public boolean onKeyLongPress(int keyCode, KeyEvent event) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+	@Override
+	public boolean onKeyUp(int keyCode, KeyEvent event) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }
