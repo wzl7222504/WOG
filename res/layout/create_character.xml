@@ -41,7 +41,8 @@
 			<RadioButton android:text="@string/rb_character_male" 
 				android:id="@+id/rb_character_male" 
 				android:layout_width="wrap_content" 
-				android:layout_height="wrap_content">
+				android:layout_height="wrap_content"
+				android:checked="true">
 			</RadioButton>
 			
 			<RadioButton android:text="@string/rb_character_female" 

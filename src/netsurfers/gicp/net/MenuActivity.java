@@ -11,6 +11,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.TabHost;
 
 /**
  * MenuActivity is the menu activity of the game. Extends
@@ -33,6 +34,7 @@ public class MenuActivity extends Activity {
 	Button mBtnSetting;
 	Button mBtnInstruction;
 	Button mBtnExitGame;
+	TabHost mTabHost;
 	private OnClickListener mLsnNewGame = new OnClickListener() {
 
 		@Override
@@ -59,12 +61,7 @@ public class MenuActivity extends Activity {
 				@Override
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
-					Bundle bundle = new Bundle();
-					bundle.putInt("stopGameKey", 0);
-					Intent Intent = new Intent();
-					Intent.putExtras(bundle);
-					setResult(Constants.RESULT_CANCELED, Intent);
-					finish();
+					initialize();
 				}
 			});
 		}
@@ -80,6 +77,69 @@ public class MenuActivity extends Activity {
 			Intent.putExtras(bundle);
 			setResult(Constants.RESULT_CANCELED, Intent);
 			finish();
+		}
+		
+	};
+	private OnClickListener mLsnSetting = new OnClickListener() {
+
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+			setContentView(R.layout.setting);
+			Button btnControlRevert=(Button)findViewById(R.id.btn_back_control_setting);
+			btnControlRevert.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					initialize();
+				}
+			});
+			Button btnVedioRevert=(Button)findViewById(R.id.btn_back_vedio_setting);
+			btnVedioRevert.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					initialize();
+				}
+			});
+			Button btnSoundRevert=(Button)findViewById(R.id.btn_back_sound_setting);
+			btnSoundRevert.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					initialize();
+				}
+			});
+			Button btnOtherRevert=(Button)findViewById(R.id.btn_back_other_setting);
+			btnOtherRevert.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					initialize();
+				}
+			});
+			try {
+				mTabHost = (TabHost)findViewById(R.id.th_setting);
+				mTabHost.setup();
+				mTabHost.addTab(mTabHost.newTabSpec("tab1")
+						.setContent(R.id.ll_control_setting)
+						.setIndicator("Control"));
+				mTabHost.addTab(mTabHost.newTabSpec("tab2")
+						.setContent(R.id.ll_vedio_setting)
+						.setIndicator("Vedio"));
+				mTabHost.addTab(mTabHost.newTabSpec("tab3")
+						.setContent(R.id.ll_sound_setting)
+						.setIndicator("Sound"));
+				mTabHost.addTab(mTabHost.newTabSpec("tab4")
+						.setContent(R.id.ll_other_setting)
+						.setIndicator("Other"));
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
 		}
 		
 	};
@@ -113,7 +173,6 @@ public class MenuActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main_menu);
 		mContext = this;
 		Bundle bundle = getIntent().getExtras();
 		mGameRuning = bundle.getBoolean("GameRuningKey");
@@ -155,6 +214,9 @@ public class MenuActivity extends Activity {
 	 * Initialize this activity when created or restart
 	 */
 	protected void initialize() {
+
+		setContentView(R.layout.main_menu);
+		
 		mBtnNewGame = (Button) this.findViewById(R.id.btn_new_game);
 		mBtnLoadGame = (Button) this.findViewById(R.id.btn_load_game);
 		mBtnSetting = (Button) this.findViewById(R.id.btn_setting);
@@ -172,6 +234,7 @@ public class MenuActivity extends Activity {
 			mBtnNewGame.setOnClickListener(mLsnNewGame);
 		}
 		
+		mBtnSetting.setOnClickListener(mLsnSetting);
 		mBtnExitGame.setOnClickListener(mLsnExitGame);
 	}
 }
