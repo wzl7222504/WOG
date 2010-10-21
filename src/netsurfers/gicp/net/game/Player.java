@@ -6,6 +6,8 @@ import netsurfers.gicp.net.common.Tools;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.content.ContentValues;
+
 /**
  * Class player
  * 
@@ -16,24 +18,24 @@ public class Player {
 	boolean mMoving;
 	int mBitmapFrame;
 	ORIENTATION mPlayerCurState;
-	int mGuid; // 0 存档ID
-	String mName; // 1 存档名字
-	int mClass; // 2 存档帮派
-	int mLevel; // 3 当前等级
-	int mXP; // 4 当前拥有的经验值
-	int mMoney; // 5 当前拥有的银两
-	int mPotential; // 6 当前剩余的潜能点
-	int mCurrentHealth; // 7 当前生命值
-	int mCurrentMana; // 8 当前内力值
-	int mPower; // 9 力量点数
-	int mStamina; // 10 耐力点数
-	int mEnergy; // 11 活力点数
-	int mAgile; // 12 敏捷点数
-	int mIntellect; // 13 智力点数
-	float mCurrentX; // 14
-	float mCurrentY; // 15
-	ORIENTATION mOrientation;// 16
-	int mMapID; // 17 所在地图id
+	int mGuid; // 0 player ID
+	String mName; // 1 name of player
+	int mClass; // 2 class of player
+	int mLevel; // 3 level of player
+	int mXP; // 4 player XP
+	int mMoney; // 5 money
+	int mPotential; // 6 remain potential of player
+	int mCurrentHealth; // 7 current health
+	int mCurrentMana; // 8 current mana
+	int mPower; // 9 power point of player
+	int mStamina; // 10 stamina point of player
+	int mEnergy; // 11 energy point of player
+	int mAgile; // 12 agile point of player
+	int mIntellect; // 13 intellect point of player
+	float mCurrentX; // 14 x coordinate of the map where the player in
+	float mCurrentY; // 15 y coordinate of the map where the player in
+	ORIENTATION mOrientation;// 16 current orientation of the player
+	int mMapID; // 17 map ID
 	int mModelID;
 	int mMaxHealth;
 	int mMaxMana;
@@ -45,7 +47,7 @@ public class Player {
 	long mFightingTime;
 	boolean mAttacking;
 
-	public List<Item> mEquipments = new ArrayList<Item>();
+	public List<Items> mEquipments = new ArrayList<Items>();
 	public Bag mBag;
 	public List<Quest> mQuests = new ArrayList<Quest>();
 	public List<Spell> mSpells = new ArrayList<Spell>();
@@ -63,7 +65,7 @@ public class Player {
 		mGuid = 1;
 		mBag = new Bag();
 		for (int i = 0; i < 9; ++i)
-			mEquipments.add(new Item(0));
+			mEquipments.add(new Items(0));
 		for (int i = 0; i < 16; ++i)
 			mSpells.add(new Spell(0));
 		for (int i = 0; i < 7; ++i) {
@@ -82,7 +84,7 @@ public class Player {
 		mGuid = guid;
 		mBag = new Bag();
 		for (int i = 0; i < 9; ++i)
-			mEquipments.add(new Item(0));
+			mEquipments.add(new Items(0));
 		for (int i = 0; i < 16; ++i)
 			mSpells.add(new Spell(0));
 		for (int i = 0; i < 7; ++i) {
@@ -180,6 +182,144 @@ public class Player {
 
 	public void release() {
 
+	}
+	
+	/**
+	 * Get the character content values when save the game
+	 * @return current character of player content values
+	 */
+	public ContentValues getCharacterContentValues(){
+		ContentValues cvcharacter = new ContentValues();
+		cvcharacter.put("guid", mGuid);
+		cvcharacter.put("name", mName);
+		cvcharacter.put("class", mClass);
+		cvcharacter.put("level", mLevel);
+		cvcharacter.put("xp", mXP);
+		cvcharacter.put("money", mMoney);
+		cvcharacter.put("potential", mPotential);
+		cvcharacter.put("health", mCurrentHealth);
+		cvcharacter.put("mana", mCurrentMana);
+		cvcharacter.put("power", mPower);
+		cvcharacter.put("stamina", mStamina);
+		cvcharacter.put("energy", mEnergy);
+		cvcharacter.put("agile", mAgile);
+		cvcharacter.put("intellect", mIntellect);
+		cvcharacter.put("position_x", mCurrentX);
+		cvcharacter.put("position_y", mCurrentY);
+		int orient=0;
+		switch(mOrientation) {
+		case UP:
+			orient=1;
+			break;
+		case DOWN:
+			orient=2;
+			break;
+		case LEFT:
+			orient=3;
+			break;
+		case RIGHT:
+			orient=4;
+			break;
+		default:
+			orient=0;
+			break;
+		}
+		cvcharacter.put("orientation", orient);
+		cvcharacter.put("map", mMapID);
+		return cvcharacter;
+	}
+	
+	/**
+	 * Get the equipment sets content values when save the game
+	 * @return current equipment sets of player content values
+	 */
+	public ContentValues getEquipmentsetsContentValues(){
+		ContentValues cvequipmentsets = new ContentValues();
+		cvequipmentsets.put("guid", mGuid);
+		cvequipmentsets.put("item0", mEquipments.get(0).getItemID());
+		cvequipmentsets.put("item1", mEquipments.get(1).getItemID());
+		cvequipmentsets.put("item2", mEquipments.get(2).getItemID());
+		cvequipmentsets.put("item3", mEquipments.get(3).getItemID());
+		cvequipmentsets.put("item4", mEquipments.get(4).getItemID());
+		cvequipmentsets.put("item5", mEquipments.get(5).getItemID());
+		cvequipmentsets.put("item6", mEquipments.get(6).getItemID());
+		cvequipmentsets.put("item7", mEquipments.get(7).getItemID());
+		cvequipmentsets.put("item8", mEquipments.get(8).getItemID());
+		return cvequipmentsets;
+	}
+	
+	/**
+	 * Get the inventory content values when save the game
+	 * @param slot slot of the bag(values 0 - 27)
+	 * @return current inventory of player content values
+	 */
+	public ContentValues getInventoryContentValues(int slot){
+		ContentValues cvinventory = new ContentValues();
+		cvinventory.put("guid", mGuid);
+		if(null == mBag.getItem(slot))
+			return null;
+		cvinventory.put("bagslot", slot);
+		cvinventory.put("item_template", mBag.getItem(slot).getItemID());
+		for(int j = 0; j< 7; ++j) {
+			if(slot == mQuickSlot[0][j]) {
+				cvinventory.put("quickslot", j);
+				break;
+			}
+			else
+				cvinventory.put("quickslot", -1);
+		}
+		return cvinventory;
+	}
+	
+	/**
+	 * Get the quest content values when save the game
+	 * @param i quest size(values 0 - {@link Player#getSizeOfQuests()})
+	 * @return current quest of player content values
+	 */
+	public ContentValues getQuestContentValues(int i){
+		ContentValues cvquest = new ContentValues();
+		cvquest.put("guid", mGuid);
+		cvquest.put("quest", mQuests.get(i).getQuestID());
+		cvquest.put("status", mQuests.get(i).getQuestStatus());
+		return cvquest;
+	}
+	
+	/**
+	 * Get the spell content values when save the game
+	 * @param i spell size(values 0 - {@link Player#getSizeOfSpells()})
+	 * @return current spell of player content values
+	 */
+	public ContentValues getSpellContentValues(int i){
+		ContentValues cvspell = new ContentValues();
+		cvspell.put("guid", mGuid);
+		if(0 != mSpells.get(i).getSpellID()) {
+			cvspell.put("spell", mSpells.get(i).getSpellID());
+			for(int j = 0; j< 7; ++j) {
+				if((mSpells.get(i).getSpellID()-1)%16 == mQuickSlot[1][j]) {
+					cvspell.put("quickslot", j);
+					break;
+				}
+				else
+					cvspell.put("quickslot", -1);
+			}
+		}
+		return cvspell;
+	}
+	
+	/**
+	 * Get size of list quests
+	 * @return the number of quests in this list
+	 */
+	public int getSizeOfQuests() {
+		return mQuests.size();
+	}
+	
+	/**
+	 * Get size of list spells
+	 * @return the number of spells in this list
+	 */
+	public int getSizeOfSpells() {
+		return mSpells.size();
 	}
 
 	private void onUpprop() {

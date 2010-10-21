@@ -7,4 +7,9 @@ package netsurfers.gicp.net.game;
  */
 public class Bag {
 
+	public Items getItem(int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

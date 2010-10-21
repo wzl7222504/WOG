@@ -7,4 +7,14 @@ package netsurfers.gicp.net.game;
  */
 public class Quest {
 
+	public int getQuestID() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public int getQuestStatus() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

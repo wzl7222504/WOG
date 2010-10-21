@@ -5,7 +5,7 @@ package netsurfers.gicp.net.game;
  * 
  * @author Ziliang Wang E-mail: Lional.King@gmail.com
  */
-public class Item {
+public class Items {
 	int mID;
 	int mType;
 	int mDisplayID[] = new int[2];
@@ -22,7 +22,7 @@ public class Item {
 	int mDefence;
 	int mAttackodds;
 
-	public Item(int entry) {
+	public Items(int entry) {
 
 	}
 

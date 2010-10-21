@@ -125,9 +125,6 @@ public class GameActivity extends Activity implements Runnable {
 	 * Update the game world
 	 */
 	private void onUpdate() {
-		// mWorld.getMaps().getPlayer().setCurrentX(mGameView.getCurrentX());
-		// mWorld.getMaps().getPlayer().setCurrentY(mGameView.getCurrentY());
-		// mWorld.getMaps().getPlayer().setPlayerState(mGameView.getPlayerState());
 		mWorld.onUpdate();
 	}
 
