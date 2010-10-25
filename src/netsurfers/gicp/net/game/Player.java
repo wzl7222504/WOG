@@ -18,24 +18,25 @@ public class Player {
 	boolean mMoving;
 	int mBitmapFrame;
 	ORIENTATION mPlayerCurState;
-	int mGuid; // 0 player ID
+	long mGuid; // 0 player ID
 	String mName; // 1 name of player
-	int mClass; // 2 class of player
-	int mLevel; // 3 level of player
-	int mXP; // 4 player XP
-	int mMoney; // 5 money
-	int mPotential; // 6 remain potential of player
-	int mCurrentHealth; // 7 current health
-	int mCurrentMana; // 8 current mana
-	int mPower; // 9 power point of player
-	int mStamina; // 10 stamina point of player
-	int mEnergy; // 11 energy point of player
-	int mAgile; // 12 agile point of player
-	int mIntellect; // 13 intellect point of player
-	float mCurrentX; // 14 x coordinate of the map where the player in
-	float mCurrentY; // 15 y coordinate of the map where the player in
-	ORIENTATION mOrientation;// 16 current orientation of the player
-	int mMapID; // 17 map ID
+	int mSex; // 2 sex of player
+	int mClass; // 3 class of player
+	int mLevel; // 4 level of player
+	int mXP; // 5 player XP
+	int mMoney; // 6 money
+	int mPotential; // 7 remain potential of player
+	int mCurrentHealth; // 8 current health
+	int mCurrentMana; // 9 current mana
+	int mPower; // 10 power point of player
+	int mStamina; // 11 stamina point of player
+	int mEnergy; // 12 energy point of player
+	int mAgile; // 13 agile point of player
+	int mIntellect; // 14 intellect point of player
+	float mCurrentX; // 15 x coordinate of the map where the player in
+	float mCurrentY; // 16 y coordinate of the map where the player in
+	ORIENTATION mOrientation;// 17 current orientation of the player
+	int mMapID; // 18 map ID
 	int mModelID;
 	int mMaxHealth;
 	int mMaxMana;
@@ -151,6 +152,13 @@ public class Player {
 		mPlayerCurState = orient;
 	}
 
+	public long getID() {
+		return mGuid;
+	}
+	public void setID(long id) {
+		mGuid = id;
+	}
+	
 	public int getMapID() {
 		return mMapID;
 	}
@@ -190,8 +198,10 @@ public class Player {
 	 */
 	public ContentValues getCharacterContentValues(){
 		ContentValues cvcharacter = new ContentValues();
-		cvcharacter.put("guid", mGuid);
+		if(mGuid != -1)
+			cvcharacter.put("_id", mGuid);
 		cvcharacter.put("name", mName);
+		cvcharacter.put("sex", mSex);
 		cvcharacter.put("class", mClass);
 		cvcharacter.put("level", mLevel);
 		cvcharacter.put("xp", mXP);

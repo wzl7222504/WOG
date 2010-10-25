@@ -1,5 +1,7 @@
 package netsurfers.gicp.net.common;
 
+import android.net.Uri;
+
 /**
  * Constants of this application program
  * 
@@ -15,6 +17,32 @@ public class Constants {
 
 	public static final long FRAME_INTERVAL = 65;
 
+	public static final String AUTHORRITIES = "netsurfers.gicp.net.provider";
+	
+	public static final Uri DATABASE_CONTENT_URI[] = {
+		 Uri.parse("content://" + Constants.AUTHORRITIES+"/character"),					//table  0
+		 Uri.parse("content://" + Constants.AUTHORRITIES+"/character_equipmentsets"),	//table  1
+		 Uri.parse("content://" + Constants.AUTHORRITIES+"/character_inventory"),		//table  2
+		 Uri.parse("content://" + Constants.AUTHORRITIES+"/character_quest"),			//table  3
+		 Uri.parse("content://" + Constants.AUTHORRITIES+"/character_spell"),			//table  4
+		 Uri.parse("content://" + Constants.AUTHORRITIES+"/creature"),					//table  5
+		 Uri.parse("content://" + Constants.AUTHORRITIES+"/creature_ai"),				//table  6
+		 Uri.parse("content://" + Constants.AUTHORRITIES+"/creature_loot_template"),	//table  7
+		 Uri.parse("content://" + Constants.AUTHORRITIES+"/creature_template"),			//table  8
+		 Uri.parse("content://" + Constants.AUTHORRITIES+"/gameobject"),				//table  9
+		 Uri.parse("content://" + Constants.AUTHORRITIES+"/gameobject_questrelation"),	//table 10
+		 Uri.parse("content://" + Constants.AUTHORRITIES+"/gameobject_loot_template"),	//table 11
+		 Uri.parse("content://" + Constants.AUTHORRITIES+"/gameobject_template"),		//table 12
+		 Uri.parse("content://" + Constants.AUTHORRITIES+"/item_template"),				//table 13
+		 Uri.parse("content://" + Constants.AUTHORRITIES+"/npc_trainer"),				//table 14
+		 Uri.parse("content://" + Constants.AUTHORRITIES+"/npc_vendor"),				//table 15
+		 Uri.parse("content://" + Constants.AUTHORRITIES+"/playercreateinfo"),			//table 16
+		 Uri.parse("content://" + Constants.AUTHORRITIES+"/playercreateinfo_item"),		//table 17
+		 Uri.parse("content://" + Constants.AUTHORRITIES+"/playercreateinfo_spell"),	//table 18
+		 Uri.parse("content://" + Constants.AUTHORRITIES+"/quest_template"),			//table 19
+		 Uri.parse("content://" + Constants.AUTHORRITIES+"/spell_chain")				//table 20
+	};
+	
 	public static final String DATABASE_TABLE_NAME[] = { "character",
 			"character_equipmentsets", "character_inventory",
 			"character_quest", "character_spell", "creature", "creature_ai",
@@ -47,8 +75,8 @@ public class Constants {
 		"vnd.android.cursor.dir/vnd.netsurfers.quest_template", 
 		"vnd.android.cursor.dir/vnd.netsurfers.spell_chain", };
 
-	public static final String DATABASE_TABLE00_COLUMN_NAME[] = { "guid",
-			"name", "class", "level", "xp", "money", "potential", "health",
+	public static final String DATABASE_TABLE00_COLUMN_NAME[] = { "_id",
+			"name", "sex", "class", "level", "xp", "money", "potential", "health",
 			"mana", "power", "stamina", "energy", "agile", "intellect",
 			"position_x", "position_y", "orientation", "map", };
 
@@ -131,4 +159,6 @@ public class Constants {
 	public static final int RESULT_OK=-1;
 	public static final int RESULT_CANCELED=0;
 	public static final int RESULT_STOP=1;
+	public static final int RESULT_NEW_OK=2;
+	public static final int RESULT_LOAD_OK=3;
 }

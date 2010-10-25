@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content">
+	<TextView android:text="@string/tv_character_name" 
+		android:id="@+id/tv_character_id" 
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content"
+		android:layout_margin="5px"
+		android:textColor="@color/white"
+		android:textSize="24px">
+	</TextView>
+	
+	<TextView android:layout_toRightOf="@id/tv_character_id" 
+		android:text="@string/tv_character_name" 
+		android:id="@+id/tv_character_name" 
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content"
+		android:layout_margin="5px"
+		android:textColor="@color/white"
+		android:textSize="24px">
+	</TextView>
+	
+	<TextView android:layout_toRightOf="@id/tv_character_name"
+		android:text="@string/tv_character_level" 
+		android:id="@+id/tv_character_level_title" 
+		android:layout_height="wrap_content" 
+		android:layout_width="wrap_content"
+		android:layout_margin="16px">
+	</TextView>
+	
+	<TextView android:layout_toRightOf="@id/tv_character_level_title"
+		android:text="@string/tv_character_level" 
+		android:id="@+id/tv_character_level" 
+		android:layout_height="wrap_content" 
+		android:layout_width="wrap_content"
+		android:layout_margin="16px">
+	</TextView>
+	
+	<TextView android:layout_below="@id/tv_character_id" 
+		android:text="@string/tv_character_class" 
+		android:id="@+id/tv_character_gang_title" 
+		android:layout_height="wrap_content" 
+		android:layout_width="wrap_content"
+		android:layout_margin="10px">
+	</TextView>
+	
+	<TextView android:layout_below="@id/tv_character_name" 
+		android:layout_toRightOf="@+id/tv_character_gang_title" 
+		android:text="@string/tv_character_class" 
+		android:id="@+id/tv_character_gang" 
+		android:layout_height="wrap_content" 
+		android:layout_width="wrap_content"
+		android:layout_margin="10px">
+	</TextView>
+	
+	<TextView android:layout_below="@id/tv_character_id" 
+		android:layout_toRightOf="@+id/tv_character_gang" 
+		android:text="@string/tv_character_sex" 
+		android:id="@+id/tv_character_sex_title" 
+		android:layout_height="wrap_content" 
+		android:layout_width="wrap_content"
+		android:layout_margin="10px">
+	</TextView>
+	
+	<TextView android:layout_below="@id/tv_character_name" 
+		android:layout_toRightOf="@+id/tv_character_sex_title" 
+		android:text="@string/rb_character_male" 
+		android:id="@+id/tv_character_sex" 
+		android:layout_height="wrap_content" 
+		android:layout_width="wrap_content"
+		android:layout_margin="10px">
+	</TextView>
+	
+</RelativeLayout>
+

@@ -178,10 +178,17 @@ public class GameActivity extends Activity implements Runnable {
 		// TODO Auto-generated method stub
 		if(resultCode == Constants.RESULT_STOP)
 			stopGame();
-		if(resultCode == Constants.RESULT_OK) {
+		if(resultCode == Constants.RESULT_NEW_OK) {
 			
-		}else if(resultCode == Constants.RESULT_CANCELED){
+		}else if(resultCode == Constants.RESULT_LOAD_OK){
 			
+		}else if(resultCode == Constants.RESULT_OK){
+			if(mWorld.getMaps().getPlayer().getID() == -1) {
+				getContentResolver().insert(Constants.DATABASE_CONTENT_URI[0], mWorld.getMaps().getPlayer().getCharacterContentValues());
+			}
+			else {
+				getContentResolver().update(Constants.DATABASE_CONTENT_URI[0], mWorld.getMaps().getPlayer().getCharacterContentValues(), "_id="+mWorld.getMaps().getPlayer().getID(), null);
+			}
 		}
 	}
 	

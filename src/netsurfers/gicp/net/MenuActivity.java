@@ -6,11 +6,16 @@ import netsurfers.gicp.net.common.Tools;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 import android.widget.TabHost;
 
 /**
@@ -48,11 +53,9 @@ public class MenuActivity extends Activity {
 				@Override
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
-					Bundle bundle = new Bundle();
-					bundle.putInt("stopGameKey", 0);
 					Intent Intent = new Intent();
-					Intent.putExtras(bundle);
-					setResult(Constants.RESULT_OK, Intent);
+					Intent.putExtra("stopGameKey", 0);
+					setResult(Constants.RESULT_NEW_OK, Intent);
 					finish();
 				}
 			});
@@ -71,14 +74,52 @@ public class MenuActivity extends Activity {
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
-			Bundle bundle = new Bundle();
-			bundle.putInt("stopGameKey", 0);
 			Intent Intent = new Intent();
-			Intent.putExtras(bundle);
-			setResult(Constants.RESULT_CANCELED, Intent);
+			Intent.putExtra("stopGameKey", 0);
+			setResult(Constants.RESULT_OK, Intent);
 			finish();
 		}
 		
+	};
+	private OnClickListener mLsnLoadGame = new OnClickListener() {
+
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+			String[] projection = {
+					"_id",
+					"name",
+					"sex",
+					"class",
+					"level"
+			};
+			final Cursor c = getContentResolver().query(Constants.DATABASE_CONTENT_URI[0], projection, null, null, null);
+			ListView listview = (ListView)findViewById(R.layout.load_character);
+			SimpleCursorAdapter adapter=new SimpleCursorAdapter(mContext,R.layout.load_character_info,c,projection,
+					new int[]{R.id.tv_character_id,R.id.tv_character_name,R.id.tv_character_sex,R.id.tv_character_gang,R.id.tv_character_level});
+			if(c.moveToFirst()) {
+				listview.setAdapter(adapter);
+				OnItemClickListener listener = new OnItemClickListener() {
+	
+					@Override
+					public void onItemClick(AdapterView<?> arg0, View arg1,
+							int arg2, long arg3) {
+						// TODO Auto-generated method stub
+						Intent Intent = new Intent();
+						Intent.putExtra("stopGameKey", 0);
+						Intent.putExtra("setPlayerIDKey", arg3);
+						setResult(Constants.RESULT_LOAD_OK, Intent);
+						finish();
+					}
+					
+				};
+				listview.setOnItemClickListener(listener);
+				setContentView(listview);
+			}
+			else
+				initialize();
+			c.close();
+		}
 	};
 	private OnClickListener mLsnSetting = new OnClickListener() {
 
@@ -143,6 +184,14 @@ public class MenuActivity extends Activity {
 		}
 		
 	};
+	private OnClickListener mLsnInstruction = new OnClickListener() {
+
+		@Override
+		public void onClick(View arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+	};
 	private OnClickListener mLsnExitGame = new OnClickListener() {
 
 		@Override
@@ -154,10 +203,8 @@ public class MenuActivity extends Activity {
 				initialize();
 			}
 			else {
-				Bundle bundle = new Bundle();
-				bundle.putInt("stopGameKey", 1);
 				Intent Intent = new Intent();
-				Intent.putExtras(bundle);
+				Intent.putExtra("stopGameKey", 1);
 				setResult(Constants.RESULT_STOP, Intent);
 				finish();
 			}
@@ -234,7 +281,9 @@ public class MenuActivity extends Activity {
 			mBtnNewGame.setOnClickListener(mLsnNewGame);
 		}
 		
+		mBtnLoadGame.setOnClickListener(mLsnLoadGame);
 		mBtnSetting.setOnClickListener(mLsnSetting);
+		mBtnInstruction.setOnClickListener(mLsnInstruction);
 		mBtnExitGame.setOnClickListener(mLsnExitGame);
 	}
 }

@@ -16,6 +16,7 @@
     <string name="rb_character_male">male</string>
     <string name="rb_character_female">female</string>
     <string name="tv_character_class">gang</string>
+    <string name="tv_character_level">level</string>
     <string name="tv_character_disposition">disposition</string>
     <string name="btn_done">done</string>
     <string name="btn_reset">reset</string>

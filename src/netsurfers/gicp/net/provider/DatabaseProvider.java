@@ -24,9 +24,7 @@ import android.text.TextUtils;
  */
 public class DatabaseProvider extends ContentProvider {
 
-	private static final String AUTHORRITIES = "netsurfers.gicp.net.provider";
-	public static final Uri CONTENT_URI = Uri
-			.parse("content://" + AUTHORRITIES);
+	public static final Uri CONTENT_URI = Uri.parse("content://" + Constants.AUTHORRITIES);
 
 	private static final String DATABASE_NAME = "wog.db";
 	private static final int DATABASE_VERSION = 2;
@@ -237,7 +235,7 @@ public class DatabaseProvider extends ContentProvider {
 		switch (sUriMatcher.match(uri)) {
 		case CHARACTER:
 			table = Constants.DATABASE_TABLE_NAME[0];
-			for(int i = 0; i < Constants.DATABASE_TABLE00_COLUMN_NAME.length; i++) {
+			for(int i = 1; i < Constants.DATABASE_TABLE00_COLUMN_NAME.length; i++) {
 		        if (values.containsKey(Constants.DATABASE_TABLE00_COLUMN_NAME[i]) == false) {
 		            values.put(Constants.DATABASE_TABLE00_COLUMN_NAME[i], 0x00);
 		        }
@@ -507,27 +505,27 @@ public class DatabaseProvider extends ContentProvider {
 
 	static {
         sUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
-        sUriMatcher.addURI(AUTHORRITIES, Constants.DATABASE_TABLE_NAME[0], CHARACTER);
-        sUriMatcher.addURI(AUTHORRITIES, Constants.DATABASE_TABLE_NAME[1], CHARACTER_EQUIPMENTSETS);
-        sUriMatcher.addURI(AUTHORRITIES, Constants.DATABASE_TABLE_NAME[2], CHARACTER_INVENTORY);
-        sUriMatcher.addURI(AUTHORRITIES, Constants.DATABASE_TABLE_NAME[3], CHARACTER_QUEST);
-        sUriMatcher.addURI(AUTHORRITIES, Constants.DATABASE_TABLE_NAME[4], CHARACTER_SPELL);
-        sUriMatcher.addURI(AUTHORRITIES, Constants.DATABASE_TABLE_NAME[5], CREATURE);
-        sUriMatcher.addURI(AUTHORRITIES, Constants.DATABASE_TABLE_NAME[6], CREATURE_AI);
-        sUriMatcher.addURI(AUTHORRITIES, Constants.DATABASE_TABLE_NAME[7], CREATURE_LOOT_TEMPLATE);
-        sUriMatcher.addURI(AUTHORRITIES, Constants.DATABASE_TABLE_NAME[8], CREATURE_TEMPLATE);
-        sUriMatcher.addURI(AUTHORRITIES, Constants.DATABASE_TABLE_NAME[9], GAMEOBJECT);
-        sUriMatcher.addURI(AUTHORRITIES, Constants.DATABASE_TABLE_NAME[10], GAMEOBJECT_QUESTRELATION);
-        sUriMatcher.addURI(AUTHORRITIES, Constants.DATABASE_TABLE_NAME[11], GAMEOBJECT_LOOT_TEMPLATE);
-        sUriMatcher.addURI(AUTHORRITIES, Constants.DATABASE_TABLE_NAME[12], GAMEOBJECT_TEMPLATE);
-        sUriMatcher.addURI(AUTHORRITIES, Constants.DATABASE_TABLE_NAME[13], ITEM_TEMPLATE);
-        sUriMatcher.addURI(AUTHORRITIES, Constants.DATABASE_TABLE_NAME[14], NPC_TRAINER);
-        sUriMatcher.addURI(AUTHORRITIES, Constants.DATABASE_TABLE_NAME[15], NPC_VENDOR);
-        sUriMatcher.addURI(AUTHORRITIES, Constants.DATABASE_TABLE_NAME[16], PLAYERCREATEINFO);
-        sUriMatcher.addURI(AUTHORRITIES, Constants.DATABASE_TABLE_NAME[17], PLAYERCREATEINFO_ITEM);
-        sUriMatcher.addURI(AUTHORRITIES, Constants.DATABASE_TABLE_NAME[18], PLAYERCREATEINFO_SPELL);
-        sUriMatcher.addURI(AUTHORRITIES, Constants.DATABASE_TABLE_NAME[19], QUEST_TEMPLATE);
-        sUriMatcher.addURI(AUTHORRITIES, Constants.DATABASE_TABLE_NAME[20], SPELL_CHAIN);
+        sUriMatcher.addURI(Constants.AUTHORRITIES, Constants.DATABASE_TABLE_NAME[0], CHARACTER);
+        sUriMatcher.addURI(Constants.AUTHORRITIES, Constants.DATABASE_TABLE_NAME[1], CHARACTER_EQUIPMENTSETS);
+        sUriMatcher.addURI(Constants.AUTHORRITIES, Constants.DATABASE_TABLE_NAME[2], CHARACTER_INVENTORY);
+        sUriMatcher.addURI(Constants.AUTHORRITIES, Constants.DATABASE_TABLE_NAME[3], CHARACTER_QUEST);
+        sUriMatcher.addURI(Constants.AUTHORRITIES, Constants.DATABASE_TABLE_NAME[4], CHARACTER_SPELL);
+        sUriMatcher.addURI(Constants.AUTHORRITIES, Constants.DATABASE_TABLE_NAME[5], CREATURE);
+        sUriMatcher.addURI(Constants.AUTHORRITIES, Constants.DATABASE_TABLE_NAME[6], CREATURE_AI);
+        sUriMatcher.addURI(Constants.AUTHORRITIES, Constants.DATABASE_TABLE_NAME[7], CREATURE_LOOT_TEMPLATE);
+        sUriMatcher.addURI(Constants.AUTHORRITIES, Constants.DATABASE_TABLE_NAME[8], CREATURE_TEMPLATE);
+        sUriMatcher.addURI(Constants.AUTHORRITIES, Constants.DATABASE_TABLE_NAME[9], GAMEOBJECT);
+        sUriMatcher.addURI(Constants.AUTHORRITIES, Constants.DATABASE_TABLE_NAME[10], GAMEOBJECT_QUESTRELATION);
+        sUriMatcher.addURI(Constants.AUTHORRITIES, Constants.DATABASE_TABLE_NAME[11], GAMEOBJECT_LOOT_TEMPLATE);
+        sUriMatcher.addURI(Constants.AUTHORRITIES, Constants.DATABASE_TABLE_NAME[12], GAMEOBJECT_TEMPLATE);
+        sUriMatcher.addURI(Constants.AUTHORRITIES, Constants.DATABASE_TABLE_NAME[13], ITEM_TEMPLATE);
+        sUriMatcher.addURI(Constants.AUTHORRITIES, Constants.DATABASE_TABLE_NAME[14], NPC_TRAINER);
+        sUriMatcher.addURI(Constants.AUTHORRITIES, Constants.DATABASE_TABLE_NAME[15], NPC_VENDOR);
+        sUriMatcher.addURI(Constants.AUTHORRITIES, Constants.DATABASE_TABLE_NAME[16], PLAYERCREATEINFO);
+        sUriMatcher.addURI(Constants.AUTHORRITIES, Constants.DATABASE_TABLE_NAME[17], PLAYERCREATEINFO_ITEM);
+        sUriMatcher.addURI(Constants.AUTHORRITIES, Constants.DATABASE_TABLE_NAME[18], PLAYERCREATEINFO_SPELL);
+        sUriMatcher.addURI(Constants.AUTHORRITIES, Constants.DATABASE_TABLE_NAME[19], QUEST_TEMPLATE);
+        sUriMatcher.addURI(Constants.AUTHORRITIES, Constants.DATABASE_TABLE_NAME[20], SPELL_CHAIN);
 
         mCharacterProjectionMap = new HashMap<String, String>();
         for(int i = 0; i < Constants.DATABASE_TABLE00_COLUMN_NAME.length; i++) {

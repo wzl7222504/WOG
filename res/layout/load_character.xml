@@ -3,5 +3,25 @@
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="wrap_content"
   android:layout_height="wrap_content">
+	<TextView android:text="@string/tv_character_name" 
+		android:id="@+id/tv_character_name_title" 
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content"
+		android:layout_margin="5px"
+		android:textColor="@color/white"
+		android:textSize="24px">
+	</TextView>
+	<TextView android:layout_below="@id/tv_character_name_title"
+		android:text="@string/tv_character_class" 
+		android:id="@+id/tv_character_gang_title" 
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content"
+		android:layout_margin="5px">
+	</TextView>
+	<ListView android:layout_below="@id/tv_character_gang_title" 
+		android:id="@+id/lv_load_character" 
+		android:layout_height="wrap_content" 
+		android:layout_width="wrap_content">
+	</ListView>
 </RelativeLayout>
 
